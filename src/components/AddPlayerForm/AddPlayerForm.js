@@ -1,5 +1,6 @@
-import styled from 'styled-components/macro'
+// import styled from 'styled-components/macro'
 // import PropTypes from 'prop-types'
+import Button from '../Button'
 
 export default function AddPlayerForm() {
   return (
@@ -8,7 +9,7 @@ export default function AddPlayerForm() {
       <label text="AddPlayer">
         <input placeholder="Add Player"></input>
       </label>
-      <button>add</button>
+      <Button text="add"></Button>
     </>
   )
 }

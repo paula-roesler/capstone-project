@@ -12,7 +12,7 @@ export default createGlobalStyle`
     line-height: 1.5;
   }
   
-  input, button, textarea {
+  input, textarea {
     font-family: inherit;
     font-size: inherit;
     width: 100%;
@@ -25,10 +25,5 @@ export default createGlobalStyle`
   input, textarea {
     border: 2px solid #ddd;
     padding: 4px;
-  }
-  button {
-    border-radius: 4px;
-    background: #ddd;
-    border: none;
   }
 `
