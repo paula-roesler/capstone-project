@@ -2,10 +2,12 @@
   "name": "capstone-project",
   "version": "0.1.0",
   "private": true,
+  "author": "Paula Rösler <paularoesler@icloud.com> (https://paularoesler-git-main-paula-roesler.vercel.app/)",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
@@ -24,7 +26,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "import/no-anonymous-default-export": "off"
+    }
   },
   "browserslist": {
     "production": [
