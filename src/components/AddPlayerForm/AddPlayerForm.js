@@ -4,13 +4,19 @@ import Button from '../Button'
 
 export default function AddPlayerForm() {
   return (
-    <>
-      <h2>Add Player:</h2>
+    <form>
       <label text="AddPlayer">
-        <input placeholder="Add Player"></input>
+        Add Player:
+        <input
+          required
+          name="playersName"
+          placeholder="players name goes here"
+          minLength="2"
+          maxLength="30"
+        ></input>
       </label>
-      <Button text="add"></Button>
-    </>
+      <Button>add</Button>
+    </form>
   )
 }
 

@@ -1,10 +1,6 @@
 import styled from 'styled-components/macro'
 
-export default function Button({ text }) {
-  return <TemplateButton>{text}</TemplateButton>
-}
-
-const TemplateButton = styled.button`
+export default styled.button`
   font-family: inherit;
   font-size: inherit;
   color: red;
