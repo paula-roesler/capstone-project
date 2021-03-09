@@ -9,4 +9,9 @@ export default styled.button`
   border: none;
   padding: 6px;
   width: 100%;
+
+  &.active {
+    background-color: greenyellow;
+    color: royalblue;
+  }
 `

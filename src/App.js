@@ -1,12 +1,12 @@
-import AddPlayerForm from './components/AddPlayerForm/AddPlayerForm'
 import Grid from './components/Grid'
+import AddPlayerForm from './components/AddPlayerForm/AddPlayerForm'
+import CountScore from './components/CountScore'
 
-function App() {
+export default function App() {
   return (
     <Grid>
       <AddPlayerForm />
+      <CountScore />
     </Grid>
   )
 }
-
-export default App
