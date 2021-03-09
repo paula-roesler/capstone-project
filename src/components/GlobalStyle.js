@@ -10,6 +10,7 @@ export default createGlobalStyle`
     font-family: sans-serif;
     font-size: 112.5%;
     line-height: 1.5;
+    padding: 20px;
   }
   
   input, textarea {
@@ -21,9 +22,10 @@ export default createGlobalStyle`
       border-color: transparent;
       box-shadow: 0 0 4px 1px plum;
     }
+
   }
   input, textarea {
     border: 2px solid #ddd;
-    padding: 4px;
+    padding: 6px;
   }
 `
