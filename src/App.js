@@ -6,25 +6,34 @@ import styled from 'styled-components'
 
 export default function App() {
   const [players, setPlayers] = useState([])
-  const [score, setScore] = useState(0)
+  // const [score, setScore] = useState(0)
 
   return (
     <Grid>
       <AddPlayerForm onAddPlayer={addPlayer} />
-      <Player
-        players={players}
-        onScore={() => countScore(score)} // warum muss das hier in einer Arrowfunction
-        score={score}
-      />
+      {players.map(({ name, score }, index) => (
+        <Player
+          key={index}
+          players={name}
+          score={score}
+          onScore={() => countScore(score)}
+        />
+      ))}
     </Grid>
   )
 
   function addPlayer({ nameOfPlayer }) {
-    setPlayers(nameOfPlayer, ...players)
+    setPlayers([{ name: nameOfPlayer, score: 0 }, ...players])
+    // setPlayers([nameOfPlayer.map(name => ({ name, score: 0 }))])
   }
 
-  function countScore(score) {
-    setScore(score + 1)
+  function countScore(score, index) {
+    const currentPlayer = players[index]
+    setScore([
+      ...players.slice(0, index),
+      { ...currentPlayer, score: currentPlayer.score + 1 },
+      ...players.slice(index + 1),
+    ])
   }
 }
 

@@ -4,9 +4,8 @@ import Button from '../Button'
 export default function Player({ players, score, onScore }) {
   return (
     <section className="CountScore">
-      Add Score:
       <SinglePlayer>
-        <span>Player 1: {players}</span>
+        <SinglePlayerName>Player 1: {players}</SinglePlayerName>
         <ScoreButton onClick={onScore}>{score}</ScoreButton>
       </SinglePlayer>
     </section>
@@ -15,7 +14,14 @@ export default function Player({ players, score, onScore }) {
 
 export const SinglePlayer = styled.div`
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid blue;
+`
+export const SinglePlayerName = styled.div`
+  height: 35px;
+  display: flex;
+  align-items: center;
 `
 
 export const ScoreButton = styled(Button)`
