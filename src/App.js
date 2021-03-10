@@ -7,7 +7,6 @@ import styled from 'styled-components'
 
 export default function App() {
   const [players, setPlayers] = useState([])
-  // const [score, setScore] = useState(0)
 
   return (
     <Grid>
@@ -17,7 +16,7 @@ export default function App() {
           key={index}
           players={name}
           score={score}
-          onScore={() => countScore(score)}
+          onScore={() => countScore(index)}
         />
       ))}
     </Grid>
@@ -25,19 +24,14 @@ export default function App() {
 
   function addPlayer({ nameOfPlayer }) {
     setPlayers([{ name: nameOfPlayer, score: 0 }, ...players])
-    // setPlayers([nameOfPlayer.map(name => ({ name, score: 0 }))])
   }
 
-  function countScore(score, index) {
+  function countScore(index) {
     const currentPlayer = players[index]
-    setScore([
+    setPlayers([
       ...players.slice(0, index),
       { ...currentPlayer, score: currentPlayer.score + 1 },
       ...players.slice(index + 1),
     ])
   }
 }
-
-export const ListOfPlayers = styled.div`
-  color: green;
-`
