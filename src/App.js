@@ -3,6 +3,7 @@ import Grid from './components/Grid'
 import AddPlayerForm from './components/AddPlayerForm/AddPlayerForm'
 import Player from './components/Player'
 import styled from 'styled-components'
+// import PropTypes from 'prop-types'
 
 export default function App() {
   const [players, setPlayers] = useState([])
