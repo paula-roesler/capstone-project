@@ -3,13 +3,13 @@
 import styled from 'styled-components/macro'
 import Button from '../Button'
 
-export default function AddPlayerForm() {
+export default function AddPlayerForm({ onAddPlayer }) {
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <label>
         Add Player:
         <input
-          name="playersName"
+          name="playerName"
           required
           placeholder="players name goes here"
           minLength="2"
@@ -19,6 +19,18 @@ export default function AddPlayerForm() {
       <Button>add</Button>
     </Form>
   )
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target
+    const { playerName } = form.elements
+
+    onAddPlayer({
+      nameOfPlayer: playerName.value,
+    })
+    form.reset()
+    playerName.focus()
+  }
 }
 
 export const Form = styled.form`
