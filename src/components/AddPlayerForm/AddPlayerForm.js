@@ -1,7 +1,12 @@
+// import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Button from '../Button'
 
-export default function AddPlayerForm({ onAddPlayer }) {
+export default function AddPlayerForm({
+  onAddPlayer,
+  disabled,
+  placeholderText,
+}) {
   return (
     <Form onSubmit={handleSubmit}>
       <label>
@@ -9,12 +14,13 @@ export default function AddPlayerForm({ onAddPlayer }) {
         <input
           name="playerName"
           required
-          placeholder="players name goes here"
+          placeholder={placeholderText}
           minLength="2"
           maxLength="30"
+          disabled={disabled}
         ></input>
       </label>
-      <Button>add</Button>
+      <Button disabled={disabled}>add</Button>
     </Form>
   )
 

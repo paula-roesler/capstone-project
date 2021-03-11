@@ -5,7 +5,7 @@ export default function Player({ players, score, onScore }) {
   return (
     <section className="CountScore">
       <SinglePlayer>
-        <SinglePlayerName>Player 1: {players}</SinglePlayerName>
+        <SinglePlayerName>{players}</SinglePlayerName>
         <ScoreButton onClick={onScore}>{score}</ScoreButton>
       </SinglePlayer>
     </section>

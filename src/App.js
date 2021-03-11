@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Grid from './components/Grid'
 import AddPlayerForm from './components/AddPlayerForm/AddPlayerForm'
 import Player from './components/Player'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 // import PropTypes from 'prop-types'
 
 export default function App() {
@@ -10,7 +10,15 @@ export default function App() {
 
   return (
     <Grid>
-      <AddPlayerForm onAddPlayer={addPlayer} />
+      <AddPlayerForm
+        onAddPlayer={addPlayer}
+        disabled={players.length >= 4 ? true : false}
+        placeholderText={
+          players.length >= 4
+            ? 'Your flight is complete'
+            : 'Players name goes here'
+        }
+      />
       {players.map(({ name, score }, index) => (
         <Player
           key={index}
