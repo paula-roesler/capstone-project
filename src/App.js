@@ -1,9 +1,10 @@
+// import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
 import { useState } from 'react'
 import Grid from './components/Grid'
 import AddPlayerForm from './components/AddPlayerForm/AddPlayerForm'
 import Player from './components/Player'
-// import styled from 'styled-components'
-// import PropTypes from 'prop-types'
+import Button from './components/Button'
 
 export default function App() {
   const [players, setPlayers] = useState([])
@@ -27,6 +28,12 @@ export default function App() {
           onScore={() => countScore(index)}
         />
       ))}
+      <ResetButton
+        disabled={players.length <= 0 ? true : false}
+        onClick={resetForm}
+      >
+        Reset
+      </ResetButton>
     </Grid>
   )
 
@@ -42,4 +49,17 @@ export default function App() {
       ...players.slice(index + 1),
     ])
   }
+
+  function resetForm() {
+    setPlayers([])
+  }
 }
+
+export const ResetButton = styled(Button)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 20px;
+  width: 95%;
+`

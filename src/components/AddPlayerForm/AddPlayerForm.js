@@ -20,7 +20,7 @@ export default function AddPlayerForm({
           disabled={disabled}
         ></input>
       </label>
-      <Button disabled={disabled}>add</Button>
+      <Button disabled={disabled}>Add</Button>
     </Form>
   )
 

@@ -10,7 +10,6 @@ export default createGlobalStyle`
     font-family: sans-serif;
     font-size: 112.5%;
     line-height: 1.5;
-    padding: 20px;
   }
   
   input, textarea {
@@ -26,6 +25,6 @@ export default createGlobalStyle`
   }
   input, textarea {
     border: 2px solid #ddd;
-    padding: 6px;
+    padding: 10px;
   }
 `

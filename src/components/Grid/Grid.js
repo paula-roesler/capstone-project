@@ -6,6 +6,9 @@ export default function Grid({ children }) {
 
 const GridSystem = styled.div`
   display: grid;
+  align-content: start;
   gap: 20px;
-  justify-content: center;
+  position: relative;
+  height: 100vh;
+  padding: 20px;
 `

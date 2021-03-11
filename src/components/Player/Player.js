@@ -16,7 +16,8 @@ export const SinglePlayer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid blue;
+  border: 2px solid lightgrey;
+  padding: 6px 10px;
 `
 export const SinglePlayerName = styled.div`
   height: 35px;

@@ -3,15 +3,14 @@ import styled from 'styled-components/macro'
 export default styled.button`
   font-family: inherit;
   font-size: inherit;
-  color: red;
+  color: #444;
   background: #ddd;
-  border-radius: 4px;
   border: none;
-  padding: 6px;
+  padding: 10px;
   width: 100%;
 
-  &.active {
-    background-color: greenyellow;
-    color: royalblue;
+  &:disabled {
+    color: #999;
+    background: #ddd;
   }
 `
