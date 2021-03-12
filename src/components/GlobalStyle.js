@@ -12,23 +12,19 @@ export default createGlobalStyle`
     line-height: 1.5;
   }
   
-  input, button, textarea {
+  input, textarea {
     font-family: inherit;
-    font-size: inherit;
+    font-size: 16px;
     width: 100%;
     &:focus {
       outline: none;
       border-color: transparent;
       box-shadow: 0 0 4px 1px plum;
     }
+
   }
   input, textarea {
     border: 2px solid #ddd;
-    padding: 4px;
-  }
-  button {
-    border-radius: 4px;
-    background: #ddd;
-    border: none;
+    padding: 10px;
   }
 `
