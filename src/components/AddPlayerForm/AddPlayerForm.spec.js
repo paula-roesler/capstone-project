@@ -18,8 +18,8 @@ describe('AddPlayerForm', () => {
     it('applies the name of a player to the submit callback', () => {
       const { queryByTitle } = render(<AddPlayerForm />)
       const input = queryByTitle('addPlayerInput')
-      fireEvent.change(input, { target: { value: 'Joe' } })
-      expect(input.value).toBe('Joe')
+      fireEvent.change(input, { target: { value: 'Sue' } })
+      expect(input.value).toBe('Sue')
 
       screen.debug()
     })
