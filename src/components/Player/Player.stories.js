@@ -1,8 +1,8 @@
-import CountScore from './CountScore'
+import Player from './Player'
 
 export default {
-  title: 'CountScore',
-  component: 'CountScore',
+  title: 'Player',
+  component: 'Player',
 }
 
-export const templateCountScore = () => <CountScore />
+export const templatePlayer = () => <Player />

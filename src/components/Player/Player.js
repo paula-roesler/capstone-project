@@ -1,12 +1,14 @@
 import styled from 'styled-components/macro'
 import Button from '../Button'
 
-export default function Player({ players, score, onScore }) {
+export default function Player({ players, score, onScore, disabled }) {
   return (
     <section className="CountScore">
       <SinglePlayer>
         <SinglePlayerName>{players}</SinglePlayerName>
-        <ScoreButton onClick={onScore}>{score}</ScoreButton>
+        <ScoreButton onClick={onScore} disabled={disabled}>
+          {score}
+        </ScoreButton>
       </SinglePlayer>
     </section>
   )

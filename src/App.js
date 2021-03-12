@@ -12,12 +12,14 @@ export default function App() {
   return (
     <Grid>
       <AddPlayerForm
+        role="form"
+        name="addPlayerForm"
         onAddPlayer={addPlayer}
         disabled={players.length >= 4 ? true : false}
         placeholderText={
           players.length >= 4
-            ? 'Your flight is complete'
-            : 'Players name goes here'
+            ? 'Your flight has reached the max. of 4 players'
+            : 'Players name goes here (min. 2 players)'
         }
       />
       {players.map(({ name, score }, index) => (
@@ -26,6 +28,7 @@ export default function App() {
           players={name}
           score={score}
           onScore={() => countScore(index)}
+          disabled={players.length <= 1 ? true : false}
         />
       ))}
       <ResetButton

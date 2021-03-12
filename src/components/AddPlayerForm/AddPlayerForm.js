@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Button from '../Button'
 
@@ -18,9 +17,12 @@ export default function AddPlayerForm({
           minLength="2"
           maxLength="30"
           disabled={disabled}
+          title="addPlayerInput"
         ></input>
       </label>
-      <Button disabled={disabled}>Add</Button>
+      <Button disabled={disabled} title="addPlayerButton">
+        Add
+      </Button>
     </Form>
   )
 

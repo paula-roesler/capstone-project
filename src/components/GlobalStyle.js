@@ -14,7 +14,7 @@ export default createGlobalStyle`
   
   input, textarea {
     font-family: inherit;
-    font-size: inherit;
+    font-size: 16px;
     width: 100%;
     &:focus {
       outline: none;
