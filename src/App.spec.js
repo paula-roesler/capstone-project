@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import App from './App'
 
-it('renders the input from', () => {
+it('renders the input form', () => {
   render(<App />)
   expect(screen.getByRole('textbox')).toBeInTheDocument()
+
   screen.debug()
 })
 
