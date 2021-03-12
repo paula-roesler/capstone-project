@@ -15,7 +15,7 @@ export default function App() {
         role="form"
         name="addPlayerForm"
         onAddPlayer={addPlayer}
-        disabled={players.length >= 4 ? true : false}
+        disabled={players.length >= 4}
         placeholderText={
           players.length >= 4
             ? 'Your flight has reached the max. of 4 players'
@@ -25,18 +25,18 @@ export default function App() {
       {players.map(({ name, score }, index) => (
         <Player
           key={index}
-          players={name}
+          player={name}
           score={score}
           onScore={() => countScore(index)}
-          disabled={players.length <= 1 ? true : false}
+          disabled={players.length <= 1}
         />
       ))}
-      <ResetButton
-        disabled={players.length <= 0 ? true : false}
-        onClick={resetForm}
-      >
-        Reset
-      </ResetButton>
+
+      <ButtonWrapper>
+        <Button disabled={players.length <= 0} onClick={resetForm}>
+          Reset
+        </Button>
+      </ButtonWrapper>
     </Grid>
   )
 
@@ -58,11 +58,6 @@ export default function App() {
   }
 }
 
-export const ResetButton = styled(Button)`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: 20px;
-  width: 95%;
+export const ButtonWrapper = styled.div`
+  display: grid;
 `
