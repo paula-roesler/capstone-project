@@ -19,7 +19,7 @@ export default function App() {
         placeholderText={
           players.length >= 4
             ? 'Your flight has reached the max. of 4 players'
-            : 'Players name goes here (min. 2 players)'
+            : 'Enter player name (e.g. Joe)'
         }
       />
       {players.map(({ name, score }, index) => (
