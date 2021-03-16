@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+  :root {
+    --background: #000;
+    --primary: royalblue;
+    --secondary: limegreen;
+  }
+  
   * {
     box-sizing: border-box
   }

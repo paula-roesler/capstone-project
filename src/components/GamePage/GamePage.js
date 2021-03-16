@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom'
+import styled from 'styled-components/macro'
 import Player from '../Player'
+import Button from '../Button'
 
-export default function GamePage({ players, onScore }) {
+export default function GamePage({ players, onScore, endGame }) {
   return (
-    <section>
+    <WrapperGamePage>
       <h1>Game Page</h1>
       {players.map(({ name, score }, index) => (
         <Player
@@ -13,6 +16,17 @@ export default function GamePage({ players, onScore }) {
           disabled={players.length <= 1}
         />
       ))}
-    </section>
+      <Button onClick={endGame} as={Link} to="/">
+        End game
+      </Button>
+    </WrapperGamePage>
   )
 }
+
+export const WrapperGamePage = styled.div`
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  text-align: center;
+  color: royalblue;
+`
