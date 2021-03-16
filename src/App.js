@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import { useState } from 'react'
 import Grid from './components/Grid'
 import AddPlayerForm from './components/AddPlayerForm/AddPlayerForm'
-import Player from './components/Player'
+import GamePage from './components/GamePage'
 import Button from './components/Button'
 
 export default function App() {
@@ -22,7 +22,8 @@ export default function App() {
             : 'Enter player name (e.g. Joe)'
         }
       />
-      {players.map(({ name, score }, index) => (
+
+      {/* {players.map(({ name, score }, index) => (
         <Player
           key={index}
           player={name}
@@ -30,7 +31,13 @@ export default function App() {
           onScore={() => countScore(index)}
           disabled={players.length <= 1}
         />
-      ))}
+      ))} */}
+
+      <Button disabled={players.length <= 1} onClick={startGame}>
+        Start game
+      </Button>
+
+      <GamePage players={players} onScore={countScore} />
 
       <ButtonWrapper>
         <Button disabled={players.length <= 0} onClick={resetForm}>
@@ -57,6 +64,8 @@ export default function App() {
     setPlayers([])
   }
 }
+
+function startGame() {}
 
 export const ButtonWrapper = styled.div`
   display: grid;
