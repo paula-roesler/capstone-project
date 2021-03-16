@@ -6,7 +6,7 @@ import Button from '../Button'
 export default function GamePage({ players, onScore, endGame }) {
   return (
     <WrapperGamePage>
-      <h1>Game Page</h1>
+      <h1>Score!</h1>
       {players.map(({ name, score }, index) => (
         <Player
           key={index}
@@ -28,5 +28,5 @@ export const WrapperGamePage = styled.div`
   gap: 10px;
   padding: 10px;
   text-align: center;
-  color: royalblue;
+  color: var(--primary);
 `

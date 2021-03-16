@@ -9,7 +9,7 @@ export default function AddPlayerForm({
   return (
     <Form onSubmit={handleSubmit}>
       <label>
-        Add Player:
+        <h1>Add Player:</h1>
         <input
           name="playerName"
           required
