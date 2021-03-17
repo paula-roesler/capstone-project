@@ -28,11 +28,13 @@ export const SinglePlayerName = styled.div`
 `
 
 export const ScoreButton = styled(Button)`
-  background-color: var(--primary);
+  font-size: 18px;
   color: var(--white);
+  background-color: var(--primary);
   border-radius: 50px;
-  width: 40px;
-  height: 40px;
-  vertical-align: center;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
   letter-spacing: 0;
+  text-align: center;
 `

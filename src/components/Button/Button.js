@@ -12,9 +12,9 @@ export default styled.button`
   padding: 10px;
   width: 100%;
   height: 40px;
-  color: ${props => (props.txtColor ? props.txtColor : 'var(--white)')};
+  color: ${props => (props.txtcolor ? props.txtcolor : 'var(--white)')};
   background-color: ${props =>
-    props.bgColor ? props.bgColor : 'var(--primary)'};
+    props.bgcolor ? props.bgcolor : 'var(--primary)'};
 
   &:disabled {
     background-color: var(--disabled);

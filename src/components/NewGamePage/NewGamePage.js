@@ -3,12 +3,13 @@ import AddPlayerForm from '../AddPlayerForm'
 import Button from '../Button'
 import { NavLink } from 'react-router-dom'
 
-export default function NewGamePage({ addPlayer, players, resetForm }) {
+export default function NewGamePage({ addPlayer, players, resetForm, name }) {
   return (
     <>
       <AddPlayerForm
+        key={name}
         role="form"
-        name="addPlayerForm"
+        // name="addPlayerForm"
         onAddPlayer={addPlayer}
         disabled={players.length >= 4}
         placeholderText={
@@ -18,14 +19,14 @@ export default function NewGamePage({ addPlayer, players, resetForm }) {
         }
       />
 
-      {players.map(({ name }) => (
-        <PlayerNames>{name}</PlayerNames>
+      {players.map(({ name }, index) => (
+        <PlayerNames key={index}>{name}</PlayerNames>
       ))}
 
       <ButtonWrapper>
         <Button
-          bgColor="var(--secondary)"
-          txtColor="var(--primary)"
+          bgcolor="var(--secondary)"
+          txtcolor="var(--primary)"
           hidden={players.length <= 1}
           as={NavLink}
           to="/playing"

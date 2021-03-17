@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import Player from '../Player'
 import Button from '../Button'
 
-export default function GamePage({ players, onScore, endGame }) {
+export default function GamePage({ players, onScore, resetPlayers }) {
   return (
     <WrapperGamePage>
       <h1>Score!</h1>
@@ -16,7 +16,7 @@ export default function GamePage({ players, onScore, endGame }) {
           disabled={players.length <= 1}
         />
       ))}
-      <Button onClick={endGame} as={Link} to="/">
+      <Button as={Link} to="/" onClick={resetPlayers}>
         End game
       </Button>
     </WrapperGamePage>

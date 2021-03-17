@@ -12,13 +12,18 @@ export default function App() {
       <Switch>
         <Route exact path="/">
           <NewGamePage
+            key={players}
             players={players}
             addPlayer={addPlayer}
             resetForm={resetForm}
           />
         </Route>
         <Route path="/playing">
-          <GamePage players={players} onScore={countScore} />
+          <GamePage
+            players={players}
+            onScore={countScore}
+            resetPlayers={resetPlayers}
+          />
         </Route>
       </Switch>
     </Grid>
@@ -29,6 +34,10 @@ export default function App() {
   }
 
   function resetForm() {
+    setPlayers([])
+  }
+
+  function resetPlayers() {
     setPlayers([])
   }
 

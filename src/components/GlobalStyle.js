@@ -37,5 +37,5 @@ export default createGlobalStyle`
     padding: 10px;
   }
 
-  h1 {color: var(--primary);}
+  h1, h2, h3, h4, h5, h6 {color: var(--primary);}
 `

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GamePage renders all added players with score button 1`] = `
+<div
+  class="GamePage__WrapperGamePage-qqemlq-0 dbpAyY"
+>
+  <h1>
+    Score!
+  </h1>
+  <section
+    class="CountScore"
+  >
+    <div
+      class="Player__SinglePlayer-sc-18wz419-0 gPncdf"
+    >
+      <div
+        class="Player__SinglePlayerName-sc-18wz419-1 kEwGuQ"
+      >
+        Sue
+      </div>
+      <button
+        class="Button-sc-19qr0ud-0 Player__ScoreButton-sc-18wz419-2 hgHwpI kqNYBW"
+      >
+        10
+      </button>
+    </div>
+  </section>
+  <section
+    class="CountScore"
+  >
+    <div
+      class="Player__SinglePlayer-sc-18wz419-0 gPncdf"
+    >
+      <div
+        class="Player__SinglePlayerName-sc-18wz419-1 kEwGuQ"
+      >
+        Joe
+      </div>
+      <button
+        class="Button-sc-19qr0ud-0 Player__ScoreButton-sc-18wz419-2 hgHwpI kqNYBW"
+      >
+        14
+      </button>
+    </div>
+  </section>
+  <a
+    class="Button-sc-19qr0ud-0 hgHwpI"
+    href="/"
+  >
+    End game
+  </a>
+</div>
+`;
