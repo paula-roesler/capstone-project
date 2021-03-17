@@ -1,10 +1,7 @@
 import { screen, render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { act } from 'react-dom/test-utils'
 
 import GamePage from './GamePage'
-// import userEvent from '@testing-library/user-event'
-// import Button from '../Button'
 
 describe('GamePage', () => {
   it('renders all added players with score button', () => {

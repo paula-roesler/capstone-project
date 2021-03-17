@@ -9,7 +9,6 @@ export default function NewGamePage({ addPlayer, players, resetForm, name }) {
       <AddPlayerForm
         key={name}
         role="form"
-        // name="addPlayerForm"
         onAddPlayer={addPlayer}
         disabled={players.length >= 4}
         placeholderText={
