@@ -18,7 +18,7 @@ export const SinglePlayer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid lightgrey;
+  border: 2px solid var(--primary);
   padding: 6px 10px;
 `
 export const SinglePlayerName = styled.div`
@@ -28,9 +28,13 @@ export const SinglePlayerName = styled.div`
 `
 
 export const ScoreButton = styled(Button)`
-  background-color: #888;
-  color: #fcfcfc;
+  font-size: 18px;
+  color: var(--white);
+  background-color: var(--primary);
   border-radius: 50px;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  letter-spacing: 0;
+  text-align: center;
 `

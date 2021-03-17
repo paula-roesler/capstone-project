@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+  :root {
+    --white: #fcfcfc;
+    --background: #000;
+    --primary: royalblue;
+    --secondary: lightgreen;
+    --disabled: #ABBDCF;
+  }
+  
   * {
     box-sizing: border-box
   }
@@ -19,12 +27,15 @@ export default createGlobalStyle`
     &:focus {
       outline: none;
       border-color: transparent;
-      box-shadow: 0 0 4px 1px plum;
+      box-shadow: 0 0 4px 1px var(--primary);
     }
 
   }
   input, textarea {
-    border: 2px solid #ddd;
+    color: var(--primary);
+    border: 2px solid var(--primary);
     padding: 10px;
   }
+
+  h1, h2, h3, h4, h5, h6 {color: var(--primary);}
 `
