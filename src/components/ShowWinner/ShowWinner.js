@@ -8,14 +8,12 @@ export default function ShowWinner({
   name,
   score,
   resetPlayers,
-  players,
 }) {
-  const winner = players.sort((a, b) => a.score - b.score)
   return (
     <>
       <WrapperWinner hidden={visible}>
         <h1>{title}</h1>
-        <div>{name}</div>
+        <WinnerName>{name}</WinnerName>
         <div>{score}</div>
       </WrapperWinner>
       <Button as={Link} to="/" onClick={resetPlayers}>
@@ -31,6 +29,13 @@ export const WrapperWinner = styled.div`
   padding: 10px;
   text-align: center;
   color: var(--primary);
-  height: 100vh;
+  height: 85vh;
   background-color: var(--secondary);
+`
+
+export const WinnerName = styled.h2`
+  color: darkorange;
+`
+export const WinnerScore = styled.h2`
+  color: tomato;
 `
