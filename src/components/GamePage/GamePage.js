@@ -1,25 +1,55 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Player from '../Player'
 import Button from '../Button'
+import ShowWinner from '../ShowWinner'
 
 export default function GamePage({ players, onScore, resetPlayers }) {
+  const [visible, setVisible] = useState('whilePlaying')
+
   return (
-    <WrapperGamePage>
-      <h1>Score!</h1>
-      {players.map(({ name, score }, index) => (
-        <Player
-          key={index}
-          player={name}
-          score={score}
-          onScore={() => onScore(index)}
-          disabled={players.length <= 1}
+    <>
+      {visible === 'whilePlaying' && (
+        <WrapperGamePage>
+          <h1>Score!</h1>
+          {players.map(({ name, score }, index) => (
+            <Player
+              key={index}
+              player={name}
+              score={score}
+              onScore={() => onScore(index)}
+              disabled={players.length <= 1}
+            />
+          ))}
+          <Button as={Link} to="/" onClick={resetPlayers}>
+            End game
+          </Button>
+
+          <Button
+            visible={visible}
+            onClick={() => {
+              setVisible('winner')
+              players.sort((a, b) => a.score - b.score)
+              console.log(players)
+            }}
+          >
+            Show winner!
+          </Button>
+        </WrapperGamePage>
+      )}
+
+      {visible === 'winner' && (
+        <ShowWinner
+          hidden={visible}
+          title={'Winner'}
+          players={players}
+          name={players[0].name}
+          score={players[0].score}
+          resetPlayers={resetPlayers}
         />
-      ))}
-      <Button as={Link} to="/" onClick={resetPlayers}>
-        End game
-      </Button>
-    </WrapperGamePage>
+      )}
+    </>
   )
 }
 

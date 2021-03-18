@@ -19,6 +19,7 @@ export default function AddPlayerForm({
           maxLength="30"
           disabled={disabled}
           title="addPlayerInput"
+          autoFocus={true}
         ></input>
       </label>
       <Button disabled={disabled} title="addPlayerButton">
