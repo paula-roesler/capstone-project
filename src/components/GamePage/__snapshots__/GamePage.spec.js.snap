@@ -49,5 +49,10 @@ exports[`GamePage renders all added players with score button 1`] = `
   >
     End game
   </a>
+  <button
+    class="Button-sc-19qr0ud-0 hgHwpI"
+  >
+    Show winner!
+  </button>
 </div>
 `;

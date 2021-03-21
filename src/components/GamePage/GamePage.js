@@ -5,7 +5,7 @@ import Player from '../Player'
 import Button from '../Button'
 import ShowWinner from '../ShowWinner'
 
-export default function GamePage({ players, onScore, resetPlayers }) {
+export default function GamePage({ players, onScore, resetPlayers, winners }) {
   const [visible, setVisible] = useState('whilePlaying')
 
   return (
@@ -30,8 +30,6 @@ export default function GamePage({ players, onScore, resetPlayers }) {
             visible={visible}
             onClick={() => {
               setVisible('winner')
-              players.sort((a, b) => a.score - b.score)
-              console.log(players)
             }}
           >
             Show winner!
@@ -40,14 +38,17 @@ export default function GamePage({ players, onScore, resetPlayers }) {
       )}
 
       {visible === 'winner' && (
-        <ShowWinner
-          hidden={visible}
-          title={'Winner'}
-          players={players}
-          name={players[0].name}
-          score={players[0].score}
-          resetPlayers={resetPlayers}
-        />
+        <>
+          <ShowWinner
+            hidden={visible}
+            title={'Winner'}
+            players={players}
+            resetPlayers={resetPlayers}
+          />
+          <Button as={Link} to="/" onClick={resetPlayers}>
+            Play again
+          </Button>
+        </>
       )}
     </>
   )
