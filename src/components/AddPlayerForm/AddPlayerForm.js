@@ -43,5 +43,6 @@ export default function AddPlayerForm({
 
 export const Form = styled.form`
   display: grid;
-  gap: 10px;
+  gap: 20px;
+  padding-bottom: 20px;
 `

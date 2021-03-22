@@ -2,17 +2,17 @@ import styled from 'styled-components/macro'
 
 export default styled.button`
   font-family: inherit;
-  font-size: 16px;
+  font-size: 18px;
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
   border: none;
-  border-radius: 4px;
-  padding: 10px;
-  width: 100%;
+  border-radius: 20px;
+  padding: 7px 10px 10px;
+  width: 70%;
   height: 40px;
-  color: ${props => (props.txtcolor ? props.txtcolor : 'var(--white)')};
+  margin: 0 auto;
+  color: ${props => (props.txtcolor ? props.txtcolor : 'var(--background)')};
   background-color: ${props =>
     props.bgcolor ? props.bgcolor : 'var(--primary)'};
 

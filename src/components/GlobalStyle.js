@@ -3,27 +3,37 @@ import { createGlobalStyle } from 'styled-components'
 export default createGlobalStyle`
   :root {
     --white: #fcfcfc;
-    --background: #000;
-    --primary: royalblue;
+    --background: #293133;
+    --primary: #87B8DE;
     --secondary: lightgreen;
     --disabled: #ABBDCF;
+
+    --bgGradient: linear-gradient(to top, #293133 0%, #313B3D 100%);
+
+    --border-width: 1px
   }
-  
+
   * {
     box-sizing: border-box
   }
 
   body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 112.5%;
     line-height: 1.5;
+    background-image: var(--bgGradient)
   }
   
   input, textarea {
     font-family: inherit;
     font-size: 16px;
     width: 100%;
+    background-color: transparent;
+    ::placeholder { 
+      color: var(--primary);
+      font-size: 15px;
+    }
     &:focus {
       outline: none;
       border-color: transparent;
@@ -33,7 +43,7 @@ export default createGlobalStyle`
   }
   input, textarea {
     color: var(--primary);
-    border: 2px solid var(--primary);
+    border: var(--border-width) solid var(--primary);
     padding: 10px;
   }
 
