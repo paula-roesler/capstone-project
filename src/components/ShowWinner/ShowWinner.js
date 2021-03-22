@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 export default function ShowWinner({ visible, title, players, confetti }) {
   const winners = players.sort((a, b) => a.score - b.score)
-  const newWinners = []
+  const newWinners = winners.filter(winner => winner.score === winners[0].score) 
 
   return (
     <WrapperWinner hidden={visible}>
