@@ -25,7 +25,6 @@ export default function NewGamePage({ addPlayer, players, resetForm, name }) {
       <ButtonWrapper>
         <Button
           bgcolor="var(--secondary)"
-          txtcolor="var(--primary)"
           hidden={players.length <= 1}
           as={NavLink}
           to="/playing"
@@ -41,15 +40,14 @@ export default function NewGamePage({ addPlayer, players, resetForm, name }) {
 }
 
 export const PlayerNames = styled.div`
-  display: grid;
-  gap: 10px;
+  color: var(--secondary);
   padding: 10px;
   text-align: center;
-  border: 2px solid var(--primary);
-  color: royalblue;
+  border: var(--border-width) solid var(--secondary);
 `
 
 export const ButtonWrapper = styled.div`
   display: grid;
-  gap: 10px;
+  gap: 20px;
+  padding-top: 20px;
 `

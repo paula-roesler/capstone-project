@@ -19,6 +19,7 @@ export default function AddPlayerForm({
           maxLength="30"
           disabled={disabled}
           title="addPlayerInput"
+          autoFocus={true}
         ></input>
       </label>
       <Button disabled={disabled} title="addPlayerButton">
@@ -42,5 +43,6 @@ export default function AddPlayerForm({
 
 export const Form = styled.form`
   display: grid;
-  gap: 10px;
+  gap: 20px;
+  padding-bottom: 20px;
 `

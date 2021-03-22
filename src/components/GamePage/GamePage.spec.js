@@ -20,6 +20,7 @@ describe('GamePage', () => {
     expect(screen.getByText('Joe')).toBeInTheDocument()
     expect(screen.getByText('10')).toBeInTheDocument()
     expect(screen.getByText('End game')).toBeInTheDocument()
+    expect(screen.getByText('Show winner!')).toBeInTheDocument()
     expect(container.firstChild).toMatchSnapshot()
   })
 

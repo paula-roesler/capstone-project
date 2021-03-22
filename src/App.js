@@ -6,6 +6,9 @@ import GamePage from './components/GamePage'
 
 export default function App() {
   const [players, setPlayers] = useState([])
+  // type players = {
+  //   name: String;
+  // }
 
   return (
     <Grid>
