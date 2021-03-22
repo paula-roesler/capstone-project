@@ -22,7 +22,7 @@ export default function GamePage({ players, onScore, resetPlayers, winners }) {
               disabled={players.length <= 1}
             />
           ))}
-          <Button as={Link} to="/" onClick={resetPlayers}>
+          <Button as={Link} to="/" onClick={onReset}>
             End game
           </Button>
 
