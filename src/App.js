@@ -6,9 +6,6 @@ import GamePage from './components/GamePage'
 
 export default function App() {
   const [players, setPlayers] = useState([])
-  // type players = {
-  //   name: String;
-  // }
 
   return (
     <Grid>
@@ -22,11 +19,7 @@ export default function App() {
           />
         </Route>
         <Route path="/playing">
-          <GamePage
-            players={players}
-            onScore={countScore}
-            resetPlayers={resetPlayers}
-          />
+          <GamePage players={players} onScore={countScore} onReset={onReset} />
         </Route>
       </Switch>
     </Grid>
@@ -40,7 +33,7 @@ export default function App() {
     setPlayers([])
   }
 
-  function resetPlayers() {
+  function onReset() {
     setPlayers([])
   }
 
