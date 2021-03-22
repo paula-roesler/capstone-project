@@ -45,7 +45,7 @@ export default function GamePage({ players, onScore, resetPlayers, winners }) {
             players={players}
             resetPlayers={resetPlayers}
           />
-          <Button as={Link} to="/" onClick={resetPlayers}>
+          <Button as={Link} to="/" onClick={onReset}>
             Play again
           </Button>
         </>
