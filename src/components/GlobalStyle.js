@@ -12,6 +12,24 @@ export default createGlobalStyle`
 
     --border-width: 1px
   }
+  // Farben Sudoku App:
+  // Blau #3478f5
+  // dunkler Hintergrund in Kästchen #161417
+  // Hintergrund #000000
+  // Buttons Hintergrund #242426
+  // Highlight Grün #8dd045
+  // Schrift hell #c9c9c9
+  // Schrift ausgegraut #636267
+
+  /*
+  font-family: gesta, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+
+  font-family: gesta, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  */
 
   * {
     box-sizing: border-box
@@ -19,7 +37,8 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: gesta, sans-serif;
+    /* font-family: 'Noto Sans', sans-serif; */
     font-size: 112.5%;
     line-height: 1.5;
     background-image: var(--bgGradient)
@@ -47,5 +66,8 @@ export default createGlobalStyle`
     padding: 10px;
   }
 
-  h1, h2, h3, h4, h5, h6 {color: var(--primary);}
+  h1, h2, h3, h4, h5, h6 {
+    font-family: gesta, sans-serif;
+    font-weight: 700;
+    color: var(--primary);}
 `
