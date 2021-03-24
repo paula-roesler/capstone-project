@@ -7,11 +7,14 @@ export default createGlobalStyle`
     --primary: #87B8DE;
     --secondary: lightgreen;
     --disabled: #ABBDCF;
-
+    
     --bgGradient: linear-gradient(to top, #293133 0%, #313B3D 100%);
 
     --border-width: 1px
   }
+
+
+
   // Farben Sudoku App:
   // Blau #3478f5
   // dunkler Hintergrund in Kästchen #161417
