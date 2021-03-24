@@ -6,7 +6,6 @@ import NewGamePage from './components/NewGamePage'
 import GamePage from './components/GamePage'
 import { loadFromLocal, saveToLocal } from './lib/localStorage'
 import HistoryPage from './components/HistoryPage'
-import HistoryDetailPage from './components/HistoryDetailPage'
 
 export default function App() {
   const [players, setPlayers] = useState([])
@@ -19,7 +18,8 @@ export default function App() {
   let month = '' + (dt.getMonth() + 1)
   let day = '' + dt.getDate()
   let year = dt.getFullYear()
-  let dateOfGame = [year, month, day, hour, minute].join('-')
+
+  let dateOfGame = `${year}-${month}-${day} (${hour}:${minute})`
 
   useEffect(() => {
     saveToLocal('history', history)
@@ -46,9 +46,6 @@ export default function App() {
         </Route>
         <Route path="/history">
           <HistoryPage history={history} />
-        </Route>
-        <Route path="/history/:dateOfGame">
-          <HistoryDetailPage history={history} />
         </Route>
       </Switch>
     </Grid>
@@ -78,7 +75,6 @@ export default function App() {
   function saveGame() {
     setHistory([{ players, dateOfGame, id: uuidv4() }, ...history])
     setPlayers([])
-    // setNameOfGame('')
     push('/history')
   }
 }

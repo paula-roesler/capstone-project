@@ -12,7 +12,7 @@ export default function HistoryPage({ history }) {
         {home}
       </NavigationButton>
       <GameHistoryWrapper>
-        <h1>History</h1>
+        <h2>Game history</h2>
         {history.map(({ dateOfGame, players, id }) => (
           <HistoryEntry key={id} dateOfGame={dateOfGame} players={players} />
         ))}
