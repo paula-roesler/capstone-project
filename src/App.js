@@ -48,7 +48,8 @@ export default function App() {
         <Route path="/one">
           <HolePage
             hole="Hole one"
-            img="graphic"
+            src="./../images/h-one.jpg"
+            alt="test"
             par="Par 4"
             distMen="yellow 351m"
             distWomen="red 331m"
@@ -62,7 +63,7 @@ export default function App() {
         <Route path="/two">
           <HolePage
             hole="Hole two"
-            img="graphic"
+            img="Graphic"
             par="Par 3"
             distMen="yellow 351m"
             distWomen="red 331m"
@@ -127,6 +128,7 @@ export default function App() {
   }
 
   function saveScore() {
+    // console.log(players[0].score)
     console.log(players)
   }
 

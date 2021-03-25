@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
-// import { useState } from 'react'
 import Button from '../Button'
 import Player from '../Player'
-import ShowWinner from '../ShowWinner'
+import HoleGraphic from '../HoleGraphic'
 
 export default function HoleOne({
   hole,
-  img,
+  src,
+  alt,
   distMen,
   distWomen,
   par,
@@ -22,10 +22,10 @@ export default function HoleOne({
 }) {
   return (
     <Wrapper>
+      <h2>{hole}</h2>
       <HoleWrapper>
-        <h1>{hole}</h1>
+        <HoleGraphic src={src} alt={alt} />
         <Par>{par}</Par>
-        <HoleGraphic>{img}</HoleGraphic>
         <Distances>
           {distMen} + ' // ' + {distWomen}
         </Distances>
@@ -43,33 +43,10 @@ export default function HoleOne({
         <Button as={Link} to={next} onClick={onSaveScore}>
           next
         </Button>
-        <Button as={Link} to={prev} /*onClick={onReset}*/>
+        <Button as={Link} to={prev}>
           prev
         </Button>
       </PlayersWrapper>
-
-      <ShowWinnerWrapper>
-        <Button visible={visible} as={Link} to="/winner">
-          Show winner!
-        </Button>
-
-        {visible === 'winner' && (
-          <>
-            <ShowWinner
-              hidden={visible}
-              title={'Winner'}
-              players={players}
-              onReset={onReset}
-            />
-            <Button as={Link} to="/" onClick={onReset}>
-              Play again
-            </Button>
-            <Button as={Link} to="/history" onClick={onSave}>
-              Save game
-            </Button>
-          </>
-        )}
-      </ShowWinnerWrapper>
     </Wrapper>
   )
 }
@@ -77,29 +54,20 @@ export default function HoleOne({
 export const Wrapper = styled.div`
   display: grid;
   gap: 20px;
+  text-align: center;
 `
 export const HoleWrapper = styled.div`
-  background-color: lightpink;
   padding: 10px;
 `
 
 export const Par = styled.div`
-  color: red;
-  background-color: lightsalmon;
+  color: var(--primary);
 `
-export const HoleGraphic = styled.div`
-  color: green;
-  background-color: lightskyblue;
-`
+
 export const Distances = styled.div`
-  color: blue;
-  background-color: lightgreen;
+  color: var(--primary);
 `
 export const PlayersWrapper = styled.div`
   display: grid;
   gap: 20px;
-  background-color: coral;
-`
-export const ShowWinnerWrapper = styled.div`
-  background-color: royalblue;
 `
