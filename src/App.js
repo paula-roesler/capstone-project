@@ -18,7 +18,6 @@ export default function App() {
   let month = '' + (dt.getMonth() + 1)
   let day = '' + dt.getDate()
   let year = dt.getFullYear()
-
   let dateOfGame = `${year}-${month}-${day} (${hour}:${minute})`
 
   useEffect(() => {
