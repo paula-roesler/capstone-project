@@ -5,7 +5,7 @@ import Player from '../Player'
 import Button from '../Button'
 import ShowWinner from '../ShowWinner'
 
-export default function GamePage({ players, onScore, onReset }) {
+export default function GamePage({ players, onScore, onReset, onSave }) {
   const [visible, setVisible] = useState('whilePlaying')
 
   return (
@@ -47,6 +47,9 @@ export default function GamePage({ players, onScore, onReset }) {
           />
           <Button as={Link} to="/" onClick={onReset}>
             Play again
+          </Button>
+          <Button as={Link} to="/history" onClick={onSave}>
+            Save game
           </Button>
         </>
       )}
