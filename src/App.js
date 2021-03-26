@@ -1,17 +1,15 @@
 import { Route, Switch, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { loadFromLocal, saveToLocal } from './lib/localStorage'
 import Grid from './components/Grid'
 import NewGamePage from './components/NewGamePage'
-import GamePage from './components/GamePage'
-import { loadFromLocal, saveToLocal } from './lib/localStorage'
 import HistoryPage from './components/HistoryPage'
-import HolePage from './components/HolePage'
+import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
 
 export default function App() {
   const [players, setPlayers] = useState([])
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
-  const [visible, setVisible] = useState('whilePlaying')
   const { push } = useHistory()
 
   let dt = new Date()
@@ -37,64 +35,10 @@ export default function App() {
             resetForm={resetForm}
           />
         </Route>
-        <Route path="/game">
-          <GamePage
-            players={players}
-            onScore={countScore}
-            onReset={onReset}
-            onSave={saveGame}
-          />
-        </Route>
-        <Route path="/one">
-          <HolePage
-            hole="Hole one"
-            src="./../images/h-one.jpg"
-            alt="test"
-            par="Par 4"
-            distMen="yellow 351m"
-            distWomen="red 331m"
-            players={players}
-            onScore={countScore}
-            onSaveScore={saveScore}
-            prev="/"
-            next="/two"
-          />
-        </Route>
-        <Route path="/two">
-          <HolePage
-            hole="Hole two"
-            img="Graphic"
-            par="Par 3"
-            distMen="yellow 351m"
-            distWomen="red 331m"
-            players={players}
-            onScore={countScore}
-            onSaveScore={saveScore}
-            prev="/two"
-            next="/eighteen"
-          />
-        </Route>
-        <Route path="/eighteen">
-          <HolePage
-            hole="Hole eighteen"
-            img="graphic"
-            par="Par 5"
-            distMen="yellow 351m"
-            distWomen="red 331m"
-            players={players}
-            visible={visible}
-            onScore={countScore}
-            onSaveScore={saveScore}
-            onReset={onReset}
-            prev="/two"
-            next="/winner"
-          />
-        </Route>
         <Route path="/winner">
           <ShowWinner
-            players={players}
-            hidden={visible}
             title={'Winner'}
+            players={players}
             onReset={onReset}
             onSave={saveGame}
           />
@@ -102,6 +46,13 @@ export default function App() {
         <Route path="/history">
           <HistoryPage history={history} />
         </Route>
+        <Holes
+          players={players}
+          countScore={countScore}
+          saveScore={saveScore}
+          onReset={onReset}
+          onSave={saveGame}
+        />
       </Switch>
     </Grid>
   )

@@ -14,10 +14,7 @@ export default function HoleOne({
   players,
   next,
   prev,
-  visible,
   onScore,
-  onReset,
-  onSave,
   onSaveScore,
 }) {
   return (

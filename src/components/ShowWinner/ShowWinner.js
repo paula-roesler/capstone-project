@@ -2,20 +2,13 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../Button'
 
-export default function ShowWinner({
-  visible,
-  title,
-  players,
-  onReset,
-  onSave,
-}) {
+export default function ShowWinner({ title, players, onReset, onSave }) {
   const winners = players.sort((a, b) => a.score - b.score)
   const newWinners = winners.filter(winner => winner.score === winners[0].score)
 
   return (
-    <WrapperWinner hidden={visible}>
+    <WrapperWinner>
       <h1>{title}</h1>
-
       {newWinners.map((newWinner, index) => (
         <Winner key={index}>
           <WinnerName>{newWinner.name}</WinnerName>
