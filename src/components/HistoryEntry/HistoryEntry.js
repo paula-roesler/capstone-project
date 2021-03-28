@@ -4,7 +4,7 @@ import Button from '../Button'
 import { ReactComponent as Arrow } from '../../assets/arrow-right-o.svg'
 import { ReactComponent as ArrowDown } from '../../assets/arrow-down-o.svg'
 
-export default function HistoryEntry({ players, dateOfGame }) {
+export default function HistoryEntry({ players, dateOfGame, score }) {
   const [isGameDetailsVisible, setIsGameDetailsVisible] = useState(false)
 
   return (
@@ -31,6 +31,7 @@ export default function HistoryEntry({ players, dateOfGame }) {
                 <span>{player.name}</span>
                 <span>{player.score}</span>
               </PlayerButton>
+              <div>{score}</div>
             </PlayerWrapper>
           ))}
         </div>

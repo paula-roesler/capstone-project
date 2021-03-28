@@ -4,7 +4,7 @@ import Button from '../Button'
 import Player from '../Player'
 import HoleGraphic from '../HoleGraphic'
 
-export default function HoleOne({
+export default function HolePage({
   hole,
   src,
   alt,
@@ -19,8 +19,8 @@ export default function HoleOne({
 }) {
   return (
     <Wrapper>
-      <h2>{hole}</h2>
       <HoleWrapper>
+        <h2>{hole}</h2>
         <HoleGraphic src={src} alt={alt} />
         <Par>{par}</Par>
         <Distances>
@@ -28,13 +28,14 @@ export default function HoleOne({
         </Distances>
       </HoleWrapper>
       <PlayersWrapper>
-        {players.map(({ name, score }, index) => (
+        {players.map(({ name, score, hole }, index) => (
           <Player
             key={index}
             player={name}
             score={score}
             onScore={() => onScore(index)}
             disabled={players.length <= 1}
+            playerHole={hole}
           />
         ))}
         <Button as={Link} to={next} onClick={onSaveScore}>

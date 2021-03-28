@@ -7,10 +7,19 @@ import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
 
-export default function App() {
+export default function App({ hole }) {
   const [players, setPlayers] = useState([])
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
+  const [score, setScore] = useState(loadFromLocal('score') ?? [0])
   const { push } = useHistory()
+
+  useEffect(() => {
+    saveToLocal('history', history)
+  }, [history])
+
+  useEffect(() => {
+    saveToLocal('score', score)
+  }, [score])
 
   let dt = new Date()
   let minute = '' + dt.getMinutes()
@@ -19,10 +28,6 @@ export default function App() {
   let day = '' + dt.getDate()
   let year = dt.getFullYear()
   let dateOfGame = `${year}-${month}-${day} (${hour}:${minute})`
-
-  useEffect(() => {
-    saveToLocal('history', history)
-  }, [history])
 
   return (
     <Grid>
@@ -52,6 +57,7 @@ export default function App() {
           saveScore={saveScore}
           onReset={onReset}
           onSave={saveGame}
+          bahn={hole}
         />
       </Switch>
     </Grid>
@@ -76,11 +82,23 @@ export default function App() {
       { ...currentPlayer, score: currentPlayer.score + 1 },
       ...players.slice(index + 1),
     ])
+    // setScore(currentPlayer.score)
+    // console.log(score)
   }
 
+  // wird ausgelöst bei click auf 'next'
   function saveScore() {
-    // console.log(players[0].score)
-    console.log(players)
+    // speichert für jeden player ein object mit name und score
+    const scoreCards = []
+    scoreCards.push(
+      players.map(player => ({
+        name: player.name,
+        score: player.score,
+      }))
+    )
+    console.log(scoreCards)
+
+    players.map(player => (player.score = 0))
   }
 
   function saveGame() {

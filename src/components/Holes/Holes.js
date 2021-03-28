@@ -4,7 +4,6 @@ import HolePage from '../HolePage'
 export default function Holes({
   players,
   countScore,
-  onScore,
   saveScore,
   visible,
   onReset,
@@ -15,8 +14,8 @@ export default function Holes({
         <Route path="/one">
           <HolePage
             hole="Hole one"
-            src="./../images/h-one.jpg"
-            alt="test"
+            src="./../images/Test-svg.svg"
+            alt="Hole One"
             par="Par 4"
             distMen="yellow 351m"
             distWomen="red 331m"
