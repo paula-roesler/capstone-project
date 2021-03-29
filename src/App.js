@@ -63,6 +63,20 @@ export default function App({ hole }) {
     </Grid>
   )
 
+  /*
+  const players = [
+    {
+      name: 'John',
+      overAllScore: 5,
+      holes: [
+        {hole: 'one', score: 1},
+        {hole: 'two', score: 3},
+        {hole: 'three', score: 1}
+      ]
+    }
+  ]
+  */
+
   function addPlayer({ nameOfPlayer }) {
     setPlayers([{ name: nameOfPlayer, score: 0 }, ...players])
   }
@@ -98,6 +112,8 @@ export default function App({ hole }) {
     )
     console.log(scoreCards)
 
+    // setzt leider auch den letzten Score zurück, so dass
+    // alle mit 0 das Spiel beenden
     players.map(player => (player.score = 0))
   }
 
