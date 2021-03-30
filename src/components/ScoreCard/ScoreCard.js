@@ -6,6 +6,7 @@ export default function ScoreCard(players) {
       <WrapperScoreCard>
         <div>{player.name}</div>
         <div>{player.score}</div>
+        <div>{player.holes}</div>
       </WrapperScoreCard>
     )
   })

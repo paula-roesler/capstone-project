@@ -6,20 +6,16 @@ import NewGamePage from './components/NewGamePage'
 import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
+import ScoreCard from './components/ScoreCard'
 
 export default function App({ hole }) {
   const [players, setPlayers] = useState([])
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
-  const [score, setScore] = useState(loadFromLocal('score') ?? [0])
-  const { push } = useHistory()
 
+  const { push } = useHistory()
   useEffect(() => {
     saveToLocal('history', history)
   }, [history])
-
-  useEffect(() => {
-    saveToLocal('score', score)
-  }, [score])
 
   let dt = new Date()
   let minute = '' + dt.getMinutes()
@@ -54,66 +50,41 @@ export default function App({ hole }) {
         <Holes
           players={players}
           countScore={countScore}
-          saveScore={saveScore}
+          onNext={resetScore}
           onReset={onReset}
           onSave={saveGame}
-          bahn={hole}
         />
       </Switch>
     </Grid>
   )
 
-  /*
-  const players = [
-    {
-      name: 'John',
-      overAllScore: 5,
-      holes: [
-        {hole: 'one', score: 1},
-        {hole: 'two', score: 3},
-        {hole: 'three', score: 1}
-      ]
-    }
-  ]
-  */
-
   function addPlayer({ nameOfPlayer }) {
-    setPlayers([{ name: nameOfPlayer, score: 0 }, ...players])
+    setPlayers([{ name: nameOfPlayer, score: 0, holes: [] }, ...players])
   }
-
   function resetForm() {
     setPlayers([])
   }
-
   function onReset() {
     setPlayers([])
   }
-
-  function countScore(index) {
+  function countScore(index, hole) {
     const currentPlayer = players[index]
     setPlayers([
       ...players.slice(0, index),
-      { ...currentPlayer, score: currentPlayer.score + 1 },
+      {
+        ...currentPlayer,
+        score: currentPlayer.score + 1,
+        holes: [
+          { hole, score: currentPlayer.score + 1 },
+          ...currentPlayer.holes,
+        ],
+      },
       ...players.slice(index + 1),
     ])
-    // setScore(currentPlayer.score)
-    // console.log(score)
+    console.log(players)
   }
 
-  // wird ausgelöst bei click auf 'next'
-  function saveScore() {
-    // speichert für jeden player ein object mit name und score
-    const scoreCards = []
-    scoreCards.push(
-      players.map(player => ({
-        name: player.name,
-        score: player.score,
-      }))
-    )
-    console.log(scoreCards)
-
-    // setzt leider auch den letzten Score zurück, so dass
-    // alle mit 0 das Spiel beenden
+  function resetScore() {
     players.map(player => (player.score = 0))
   }
 

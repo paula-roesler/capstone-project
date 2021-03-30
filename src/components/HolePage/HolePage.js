@@ -15,12 +15,12 @@ export default function HolePage({
   next,
   prev,
   onScore,
-  onSaveScore,
+  resetScore,
 }) {
   return (
     <Wrapper>
       <HoleWrapper>
-        <h2>{hole}</h2>
+        <h2>Hole {hole}</h2>
         <HoleGraphic src={src} alt={alt} />
         <Par>{par}</Par>
         <Distances>
@@ -28,17 +28,16 @@ export default function HolePage({
         </Distances>
       </HoleWrapper>
       <PlayersWrapper>
-        {players.map(({ name, score, hole }, index) => (
+        {players.map(({ name, score }, index) => (
           <Player
             key={index}
             player={name}
             score={score}
             onScore={() => onScore(index)}
             disabled={players.length <= 1}
-            playerHole={hole}
           />
         ))}
-        <Button as={Link} to={next} onClick={onSaveScore}>
+        <Button as={Link} to={next} onClick={resetScore}>
           next
         </Button>
         <Button as={Link} to={prev}>

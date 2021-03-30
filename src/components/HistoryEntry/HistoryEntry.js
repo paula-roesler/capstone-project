@@ -3,8 +3,9 @@ import styled from 'styled-components/macro'
 import Button from '../Button'
 import { ReactComponent as Arrow } from '../../assets/arrow-right-o.svg'
 import { ReactComponent as ArrowDown } from '../../assets/arrow-down-o.svg'
+import ScoreCard from '../ScoreCard'
 
-export default function HistoryEntry({ players, dateOfGame, score }) {
+export default function HistoryEntry({ players, dateOfGame }) {
   const [isGameDetailsVisible, setIsGameDetailsVisible] = useState(false)
 
   return (
@@ -25,20 +26,25 @@ export default function HistoryEntry({ players, dateOfGame, score }) {
         ''
       ) : (
         <div>
-          {players.map((player, index) => (
-            <PlayerWrapper>
-              <PlayerButton key={index} hidden={!isGameDetailsVisible}>
-                <span>{player.name}</span>
-                <span>{player.score}</span>
-              </PlayerButton>
-              <div>{score}</div>
-            </PlayerWrapper>
-          ))}
+          <div>
+            {players.map((player, index) => (
+              <PlayerWrapper>
+                <PlayerButton key={index} hidden={!isGameDetailsVisible}>
+                  <span>{player.name}</span>
+                  <span>{player.overAllScore}</span>
+                </PlayerButton>
+              </PlayerWrapper>
+            ))}
+          </div>
         </div>
       )}
     </Wrapper>
   )
 }
+
+export const PlayerWrapper = styled.div`
+  padding-bottom: 20px;
+`
 
 export const Wrapper = styled.div`
   display: grid;
@@ -52,9 +58,6 @@ export const DateOfGameButton = styled(Button)`
   background-color: var(--transparent);
   text-align: left;
   width: 100%;
-`
-export const PlayerWrapper = styled.div`
-  padding-bottom: 20px;
 `
 
 export const PlayerButton = styled(Button)`
