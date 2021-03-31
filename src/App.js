@@ -83,39 +83,11 @@ export default function App({ hole }) {
       ...players.slice(index + 1),
     ])
 
-    /* Ansatz von Daniel
-
-    function incrementHole {
-const currentHole = "1"
-
-const bahnen = [{hole: "1", score: 4}]
-
-console.log(bahnen.findIndex(bahn => bahn.hole === currentHole))
-
-bahnen[0].score++
-
-console.log(bahnen)
-                       
-return bahnen
-}
-
-setPlayer(... holes: ...incrementHole()    ...)
-
-*/
-
-    // wenn bahn vorhanden, dann score++
-    // sonst neue bahn anlegen
-    // find index of hole === 1 ... (holes an dem index verändern)
-
-    // Kann man reduce benutzen um nur einen score pro bahn zu haben?
-    // [0, 1, 2, 3, 4].reduce( (prev, curr) => prev + curr );
     console.log(players)
   }
 
   // click auf next
   function resetScore() {
-    // setPlayers([{ name: nameOfPlayer, score: 0, holes: [] }, ...players]
-
     players.map(player => (player.score = 0))
   }
 
