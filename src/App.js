@@ -6,13 +6,19 @@ import NewGamePage from './components/NewGamePage'
 import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
-import ScoreCard from './components/ScoreCard'
+// import ScoreCard from './components/ScoreCard'
 
 export default function App({ hole }) {
   const [players, setPlayers] = useState([])
+  const [currentHole, setCurrentHole] = useState(0)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
 
   const { push } = useHistory()
+
+  const isNextHoleAllowed = players.every(
+    player => player.holes.length === currentHole + 1
+  )
+
   useEffect(() => {
     saveToLocal('history', history)
   }, [history])
@@ -53,6 +59,8 @@ export default function App({ hole }) {
           onNext={resetScore}
           onReset={onReset}
           onSave={saveGame}
+          disabled={!isNextHoleAllowed}
+          hole={currentHole + 1}
         />
       </Switch>
     </Grid>
@@ -67,27 +75,40 @@ export default function App({ hole }) {
   function onReset() {
     setPlayers([])
   }
-  function countScore(index, hole) {
-    const currentPlayer = players[index]
+
+  // click auf Scorebutton
+  function countScore(playerIndex, hole) {
+    const currentPlayer = players[playerIndex]
+    const currentScore = currentPlayer.holes[currentHole]?.score ?? 0
 
     setPlayers([
-      ...players.slice(0, index),
+      ...players.slice(0, playerIndex),
       {
         ...currentPlayer,
         score: currentPlayer.score + 1,
         holes: [
-          { hole, score: currentPlayer.score + 1 },
-          ...currentPlayer.holes,
+          {
+            ...currentPlayer.holes[currentHole],
+            score: currentScore + 1,
+            name: currentHole + 1,
+          },
+          ...currentPlayer.holes.slice(currentHole + 1),
         ],
       },
-      ...players.slice(index + 1),
+      ...players.slice(playerIndex + 1),
     ])
 
     console.log(players)
   }
 
+  // zusammen zählen des Scores
+  function calculateScore(holes) {
+    return holes.reduce((acc, hole) => acc + hole.score, 0)
+  }
+
   // click auf next
   function resetScore() {
+    setCurrentHole(currentHole + 1)
     players.map(player => (player.score = 0))
   }
 

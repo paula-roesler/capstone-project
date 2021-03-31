@@ -10,7 +10,6 @@ export default function Player({ player, score, onScore, disabled }) {
           {score}
         </ScoreButton>
       </SinglePlayer>
-      <div>{player.holes}</div>
     </section>
   )
 }

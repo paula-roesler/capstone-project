@@ -1,13 +1,20 @@
 import { Route, Switch } from 'react-router-dom'
 import HolePage from '../HolePage'
 
-export default function Holes({ players, countScore, visible, onNext }) {
+export default function Holes({
+  players,
+  countScore,
+  visible,
+  onNext,
+  disabled,
+  hole,
+}) {
   return (
     <div>
       <Switch>
         <Route path="/one">
           <HolePage
-            hole="1"
+            hole={hole}
             src="./../images/Hole-1.svg"
             alt="Hole One"
             par="Par 4"
@@ -18,11 +25,12 @@ export default function Holes({ players, countScore, visible, onNext }) {
             resetScore={onNext}
             prev="/"
             next="/two"
+            disabled={disabled}
           />
         </Route>
         <Route path="/two">
           <HolePage
-            hole="2"
+            hole={hole}
             src="./../images/Hole-2-green.svg"
             par="Par 3"
             distMen="yellow 351m"
@@ -36,7 +44,7 @@ export default function Holes({ players, countScore, visible, onNext }) {
         </Route>
         <Route path="/eighteen">
           <HolePage
-            hole="18"
+            hole={hole}
             img="graphic"
             par="Par 5"
             distMen="yellow 351m"

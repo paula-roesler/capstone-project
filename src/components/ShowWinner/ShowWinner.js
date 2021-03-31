@@ -4,11 +4,10 @@ import Button from '../Button'
 
 export default function ShowWinner({ title, players, onReset, onSave }) {
   const newPlayerArray = players.map(player => {
-    const overAllScore = player.holes.reduce((acc, cur) => {
-      return acc + cur.score
-    }, 0)
+    const overAllScore = player.holes.reduce((acc, hole) => acc + hole.score, 0)
     return { ...player, overAllScore }
   })
+
   const winners = newPlayerArray.sort((a, b) => a.overAllScore - b.overAllScore)
   const newWinners = winners.filter(
     winner => winner.overAllScore === winners[0].overAllScore

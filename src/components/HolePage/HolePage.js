@@ -13,6 +13,7 @@ export default function HolePage({
   par,
   players,
   next,
+  disabled,
   prev,
   onScore,
   resetScore,
@@ -37,7 +38,7 @@ export default function HolePage({
             disabled={players.length <= 1}
           />
         ))}
-        <Button as={Link} to={next} onClick={resetScore}>
+        <Button as={Link} to={next} onClick={resetScore} disabled={disabled}>
           next
         </Button>
         <Button as={Link} to={prev}>

@@ -3,7 +3,6 @@ import styled from 'styled-components/macro'
 import Button from '../Button'
 import { ReactComponent as Arrow } from '../../assets/arrow-right-o.svg'
 import { ReactComponent as ArrowDown } from '../../assets/arrow-down-o.svg'
-import ScoreCard from '../ScoreCard'
 
 export default function HistoryEntry({ players, dateOfGame }) {
   const [isGameDetailsVisible, setIsGameDetailsVisible] = useState(false)
@@ -31,8 +30,16 @@ export default function HistoryEntry({ players, dateOfGame }) {
               <PlayerWrapper>
                 <PlayerButton key={index} hidden={!isGameDetailsVisible}>
                   <span>{player.name}</span>
-                  <span>{player.overAllScore}</span>
+                  <span>{player.holes.score}</span>
                 </PlayerButton>
+                <ScoreCardDl>
+                  {player.holes.map(hole => (
+                    <div>
+                      <HoleNameDt>H{hole.name}</HoleNameDt>
+                      <HoleScoreDd>S{hole.score}</HoleScoreDd>
+                    </div>
+                  ))}
+                </ScoreCardDl>
               </PlayerWrapper>
             ))}
           </div>
@@ -41,6 +48,18 @@ export default function HistoryEntry({ players, dateOfGame }) {
     </Wrapper>
   )
 }
+
+export const HoleScoreDd = styled.dd`
+  background-color: coral;
+`
+
+export const HoleNameDt = styled.dt`
+  background-color: skyblue;
+`
+
+export const ScoreCardDl = styled.dl`
+  background-color: whitesmoke;
+`
 
 export const PlayerWrapper = styled.div`
   padding-bottom: 20px;
