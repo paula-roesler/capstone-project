@@ -27,7 +27,7 @@ export default function NewGamePage({ addPlayer, players, resetForm, name }) {
           bgcolor="var(--secondary)"
           hidden={players.length <= 1}
           as={NavLink}
-          to="/one" // hier müsste der Name der Bahn stehen
+          to="/one"
         >
           Start game
         </Button>

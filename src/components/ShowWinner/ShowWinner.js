@@ -23,6 +23,7 @@ export default function ShowWinner({ title, players, onReset, onSave }) {
           <WinnerScore>{newWinner.overAllScore}</WinnerScore>
         </Winner>
       ))}
+
       <Button as={Link} to="/" onClick={onReset}>
         Play again
       </Button>
