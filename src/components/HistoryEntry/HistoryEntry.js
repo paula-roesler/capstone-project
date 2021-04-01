@@ -30,13 +30,13 @@ export default function HistoryEntry({ players, dateOfGame }) {
               <PlayerWrapper>
                 <PlayerButton key={index} hidden={!isGameDetailsVisible}>
                   <span>{player.name}</span>
-                  <span>{player.holes.score}</span>
+                  <span>{calculateScore(player.holes)}</span>
                 </PlayerButton>
                 <ScoreCardDl>
                   {player.holes.map(hole => (
                     <div>
-                      <HoleNameDt>H{hole.name}</HoleNameDt>
-                      <HoleScoreDd>S{hole.score}</HoleScoreDd>
+                      <HoleNameDt>H: {hole.name}</HoleNameDt>
+                      <HoleScoreDd>S: {hole.score}</HoleScoreDd>
                     </div>
                   ))}
                 </ScoreCardDl>
@@ -45,8 +45,13 @@ export default function HistoryEntry({ players, dateOfGame }) {
           </div>
         </div>
       )}
+      {console.log(players)}
     </Wrapper>
   )
+
+  function calculateScore(holes) {
+    return holes.reduce((acc, hole) => acc + hole.score, 0)
+  }
 }
 
 export const HoleScoreDd = styled.dd`

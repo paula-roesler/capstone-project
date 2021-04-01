@@ -6,6 +6,7 @@ export default function Holes({
   countScore,
   visible,
   onNext,
+  onPrev,
   disabled,
   hole,
 }) {
@@ -23,6 +24,7 @@ export default function Holes({
             players={players}
             onScore={countScore}
             resetScore={onNext}
+            onPrev={onPrev}
             prev="/"
             next="/two"
             disabled={disabled}
@@ -38,6 +40,7 @@ export default function Holes({
             players={players}
             onScore={countScore}
             resetScore={onNext}
+            onPrev={onPrev}
             prev="/one"
             next="/eighteen"
           />
@@ -52,6 +55,7 @@ export default function Holes({
             players={players}
             visible={visible}
             onScore={countScore}
+            onPrev={onPrev}
             prev="/two"
             next="/winner"
           />

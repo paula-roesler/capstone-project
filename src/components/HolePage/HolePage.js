@@ -17,6 +17,7 @@ export default function HolePage({
   prev,
   onScore,
   resetScore,
+  onPrev,
 }) {
   return (
     <Wrapper>
@@ -41,7 +42,7 @@ export default function HolePage({
         <Button as={Link} to={next} onClick={resetScore} disabled={disabled}>
           next
         </Button>
-        <Button as={Link} to={prev}>
+        <Button as={Link} to={prev} onClick={onPrev}>
           prev
         </Button>
       </PlayersWrapper>

@@ -10,7 +10,7 @@ import ShowWinner from './components/ShowWinner'
 
 export default function App({ hole }) {
   const [players, setPlayers] = useState([])
-  const [currentHole, setCurrentHole] = useState(0)
+  const [currentHole, setCurrentHole] = useState(1)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
 
   const { push } = useHistory()
@@ -40,6 +40,7 @@ export default function App({ hole }) {
             players={players}
             addPlayer={addPlayer}
             resetForm={resetForm}
+            resetHoleOne={resetHole}
           />
         </Route>
         <Route path="/winner">
@@ -57,10 +58,11 @@ export default function App({ hole }) {
           players={players}
           countScore={countScore}
           onNext={resetScore}
+          onPrev={decrHole}
           onReset={onReset}
           onSave={saveGame}
           disabled={!isNextHoleAllowed}
-          hole={currentHole + 1}
+          hole={currentHole}
         />
       </Switch>
     </Grid>
@@ -77,7 +79,7 @@ export default function App({ hole }) {
   }
 
   // click auf Scorebutton
-  function countScore(playerIndex, hole) {
+  function countScore(playerIndex) {
     const currentPlayer = players[playerIndex]
     const currentScore = currentPlayer.holes[currentHole]?.score ?? 0
 
@@ -101,15 +103,24 @@ export default function App({ hole }) {
     console.log(players)
   }
 
-  // zusammen zählen des Scores
-  function calculateScore(holes) {
-    return holes.reduce((acc, hole) => acc + hole.score, 0)
-  }
+  // // zusammen zählen des Scores
+  // function calculateScore(holes) {
+  //   return holes.reduce((acc, hole) => acc + hole.score, 0)
+  // }
 
   // click auf next
   function resetScore() {
     setCurrentHole(currentHole + 1)
     players.map(player => (player.score = 0))
+  }
+
+  // click auf prev
+  function decrHole() {
+    setCurrentHole(currentHole - 1)
+  }
+
+  function resetHole() {
+    setCurrentHole(1)
   }
 
   function saveGame() {
