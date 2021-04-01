@@ -8,6 +8,23 @@ import { loadFromLocal, saveToLocal } from './lib/localStorage'
 import HistoryPage from './components/HistoryPage'
 
 export default function App() {
+  // wetter api openweathermap
+  const [apiData, setApiData] = useState({})
+  const [getState, setGetState] = useState('tamilnadu')
+  const [state, setState] = useState('tamilnadu')
+
+  const apiKey = process.env.REACT_APP_API_KEY
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}`
+
+  // Side effect
+  useEffect(() => {
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(data => setApiData(data))
+  }, [apiUrl])
+
+  // wetter api
+
   const [players, setPlayers] = useState([])
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
   const { push } = useHistory()
