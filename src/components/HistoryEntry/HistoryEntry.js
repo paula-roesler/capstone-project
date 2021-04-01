@@ -25,24 +25,22 @@ export default function HistoryEntry({ players, dateOfGame }) {
         ''
       ) : (
         <div>
-          <div>
-            {players.map((player, index) => (
-              <PlayerWrapper>
-                <PlayerButton key={index} hidden={!isGameDetailsVisible}>
-                  <span>{player.name}</span>
-                  <span>{calculateScore(player.holes)}</span>
-                </PlayerButton>
-                <ScoreCardDl>
-                  {player.holes.map(hole => (
-                    <div>
-                      <HoleNameDt>H: {hole.name}</HoleNameDt>
-                      <HoleScoreDd>S: {hole.score}</HoleScoreDd>
-                    </div>
-                  ))}
-                </ScoreCardDl>
-              </PlayerWrapper>
-            ))}
-          </div>
+          {players.map((player, playerIndex) => (
+            <PlayerWrapper key={playerIndex}>
+              <PlayerButton hidden={!isGameDetailsVisible}>
+                <span>{player.name}</span>
+                <span>{calculateScore(player.holes)}</span>
+              </PlayerButton>
+              <ScoreCardDl>
+                {player.holes.map((hole, index) => (
+                  <div key={index}>
+                    <HoleNameDt>H: {hole.name}</HoleNameDt>
+                    <HoleScoreDd>S: {hole.score}</HoleScoreDd>
+                  </div>
+                ))}
+              </ScoreCardDl>
+            </PlayerWrapper>
+          ))}
         </div>
       )}
       {console.log(players)}

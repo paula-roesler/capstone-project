@@ -6,7 +6,6 @@ import NewGamePage from './components/NewGamePage'
 import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
-// import ScoreCard from './components/ScoreCard'
 
 export default function App({ hole }) {
   const [players, setPlayers] = useState([])
@@ -103,10 +102,10 @@ export default function App({ hole }) {
     console.log(players)
   }
 
-  // // zusammen zählen des Scores
-  // function calculateScore(holes) {
-  //   return holes.reduce((acc, hole) => acc + hole.score, 0)
-  // }
+  // zusammen zählen des Scores
+  function calculateScore(holes) {
+    return holes.reduce((acc, hole) => acc + hole.score, 0)
+  }
 
   // click auf next
   function resetScore() {
