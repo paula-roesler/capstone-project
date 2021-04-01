@@ -34,8 +34,8 @@ export default function HistoryEntry({ players, dateOfGame }) {
               <ScoreCardDl>
                 {player.holes.map((hole, index) => (
                   <div key={index}>
-                    <HoleNameDt>H: {hole.name}</HoleNameDt>
-                    <HoleScoreDd>S: {hole.score}</HoleScoreDd>
+                    <HoleNameDt>Hole: {hole.name}</HoleNameDt>
+                    <HoleScoreDd>Score: {hole.score}</HoleScoreDd>
                   </div>
                 ))}
               </ScoreCardDl>

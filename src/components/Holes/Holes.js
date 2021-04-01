@@ -33,7 +33,7 @@ export default function Holes({
         <Route path="/two">
           <HolePage
             hole={hole}
-            src="./../images/Hole-2-green.svg"
+            src="./../images/Hole-2.svg"
             par="Par 3"
             distMen="yellow 351m"
             distWomen="red 331m"
@@ -48,7 +48,7 @@ export default function Holes({
         <Route path="/eighteen">
           <HolePage
             hole={hole}
-            img="graphic"
+            src="./../images/Hole-18.svg"
             par="Par 5"
             distMen="yellow 351m"
             distWomen="red 331m"

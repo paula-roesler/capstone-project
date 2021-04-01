@@ -1,15 +1,16 @@
 import { Route, Switch, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { loadFromLocal, saveToLocal } from './lib/localStorage'
+import { v4 as uuidv4 } from 'uuid'
 import Grid from './components/Grid'
 import NewGamePage from './components/NewGamePage'
 import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
 
-export default function App({ hole }) {
+export default function App() {
   const [players, setPlayers] = useState([])
-  const [currentHole, setCurrentHole] = useState(1)
+  const [currentHole, setCurrentHole] = useState(0)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
 
   const { push } = useHistory()
@@ -88,6 +89,7 @@ export default function App({ hole }) {
         ...currentPlayer,
         score: currentPlayer.score + 1,
         holes: [
+          ...currentPlayer.holes.slice(0, currentHole),
           {
             ...currentPlayer.holes[currentHole],
             score: currentScore + 1,
@@ -103,9 +105,9 @@ export default function App({ hole }) {
   }
 
   // zusammen zählen des Scores
-  function calculateScore(holes) {
-    return holes.reduce((acc, hole) => acc + hole.score, 0)
-  }
+  // function calculateScore(holes) {
+  //   return holes.reduce((acc, hole) => acc + hole.score, 0)
+  // }
 
   // click auf next
   function resetScore() {
@@ -123,7 +125,7 @@ export default function App({ hole }) {
   }
 
   function saveGame() {
-    setHistory([{ players, dateOfGame }, ...history])
+    setHistory([{ players, dateOfGame, id: uuidv4() }, ...history])
     setPlayers([])
     push('/history')
   }

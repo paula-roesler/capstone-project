@@ -1,24 +1,21 @@
 import { Link } from 'react-router-dom'
+
 import styled from 'styled-components/macro'
 import { ReactComponent as Home } from '../../assets/home.svg'
 import HistoryEntry from '../HistoryEntry'
 import Button from '../Button'
 
-export default function HistoryPage({ history }) {
+export default function HistoryPage({ history, resetHoleOne, id }) {
   const home = <Home />
   return (
     <HistoryWrapper>
-      <NavigationButton as={Link} to="/">
+      <NavigationButton as={Link} to="/" onClick={resetHoleOne}>
         {home}
       </NavigationButton>
       <GameHistoryWrapper>
         <h2>Game history</h2>
-        {history.map(({ dateOfGame, players }) => (
-          <HistoryEntry
-            key={dateOfGame}
-            dateOfGame={dateOfGame}
-            players={players}
-          />
+        {history.map(({ dateOfGame, players, id }) => (
+          <HistoryEntry key={id} dateOfGame={dateOfGame} players={players} />
         ))}
       </GameHistoryWrapper>
     </HistoryWrapper>
