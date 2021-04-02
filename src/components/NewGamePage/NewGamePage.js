@@ -3,7 +3,13 @@ import AddPlayerForm from '../AddPlayerForm'
 import Button from '../Button'
 import { NavLink } from 'react-router-dom'
 
-export default function NewGamePage({ addPlayer, players, resetForm, name }) {
+export default function NewGamePage({
+  addPlayer,
+  players,
+  resetForm,
+  resetHoleOne,
+  name,
+}) {
   return (
     <>
       <AddPlayerForm
@@ -26,8 +32,9 @@ export default function NewGamePage({ addPlayer, players, resetForm, name }) {
         <Button
           bgcolor="var(--secondary)"
           hidden={players.length <= 1}
+          onClick={resetHoleOne}
           as={NavLink}
-          to="/game"
+          to="/one"
         >
           Start game
         </Button>

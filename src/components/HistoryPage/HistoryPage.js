@@ -4,11 +4,11 @@ import { ReactComponent as Home } from '../../assets/home.svg'
 import HistoryEntry from '../HistoryEntry'
 import Button from '../Button'
 
-export default function HistoryPage({ history }) {
+export default function HistoryPage({ history, resetHoleOne }) {
   const home = <Home />
   return (
     <HistoryWrapper>
-      <NavigationButton as={Link} to="/">
+      <NavigationButton as={Link} to="/" onClick={resetHoleOne}>
         {home}
       </NavigationButton>
       <GameHistoryWrapper>

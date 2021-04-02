@@ -1,19 +1,34 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import Button from '../Button'
 
-export default function ShowWinner({ visible, title, players }) {
-  const winners = players.sort((a, b) => a.score - b.score)
-  const newWinners = winners.filter(winner => winner.score === winners[0].score)
+export default function ShowWinner({ title, players, onReset, onSave }) {
+  const newPlayerArray = players.map(player => {
+    const overAllScore = player.holes.reduce((acc, hole) => acc + hole.score, 0)
+    return { ...player, overAllScore }
+  })
+
+  const winners = newPlayerArray.sort((a, b) => a.overAllScore - b.overAllScore)
+  const newWinners = winners.filter(
+    winner => winner.overAllScore === winners[0].overAllScore
+  )
 
   return (
-    <WrapperWinner hidden={visible}>
+    <WrapperWinner>
       <h1>{title}</h1>
-
       {newWinners.map((newWinner, index) => (
         <Winner key={index}>
           <WinnerName>{newWinner.name}</WinnerName>
-          <WinnerScore>{newWinner.score}</WinnerScore>
+          <WinnerScore>{newWinner.overAllScore}</WinnerScore>
         </Winner>
       ))}
+
+      <Button as={Link} to="/" onClick={onReset}>
+        Play again
+      </Button>
+      <Button as={Link} to="/history" onClick={onSave}>
+        Save game
+      </Button>
     </WrapperWinner>
   )
 }
@@ -31,10 +46,10 @@ export const Winner = styled.div`
   border: var(--border-width) solid var(--secondary);
 `
 
-export const WinnerName = styled.h3`
+export const WinnerName = styled.p`
   color: var(--secondary);
 `
 
-export const WinnerScore = styled.h3`
+export const WinnerScore = styled.p`
   color: var(--secondary);
 `

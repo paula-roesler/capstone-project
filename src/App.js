@@ -1,11 +1,12 @@
 import { Route, Switch, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { loadFromLocal, saveToLocal } from './lib/localStorage'
 import { v4 as uuidv4 } from 'uuid'
 import Grid from './components/Grid'
 import NewGamePage from './components/NewGamePage'
-import GamePage from './components/GamePage'
-import { loadFromLocal, saveToLocal } from './lib/localStorage'
 import HistoryPage from './components/HistoryPage'
+import Holes from './components/Holes'
+import ShowWinner from './components/ShowWinner'
 
 export default function App() {
   // wetter api openweathermap
@@ -26,8 +27,18 @@ export default function App() {
   // wetter api
 
   const [players, setPlayers] = useState([])
+  const [currentHole, setCurrentHole] = useState(0)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
+
   const { push } = useHistory()
+
+  const isNextHoleAllowed = players.every(
+    player => player.holes.length === currentHole + 1
+  )
+
+  useEffect(() => {
+    saveToLocal('history', history)
+  }, [history])
 
   let dt = new Date()
   let minute = '' + dt.getMinutes()
@@ -36,10 +47,6 @@ export default function App() {
   let day = '' + dt.getDate()
   let year = dt.getFullYear()
   let dateOfGame = `${year}-${month}-${day} (${hour}:${minute})`
-
-  useEffect(() => {
-    saveToLocal('history', history)
-  }, [history])
 
   return (
     <Grid>
@@ -50,12 +57,13 @@ export default function App() {
             players={players}
             addPlayer={addPlayer}
             resetForm={resetForm}
+            resetHoleOne={resetHole}
           />
         </Route>
-        <Route path="/game">
-          <GamePage
+        <Route path="/winner">
+          <ShowWinner
+            title={'Winner'}
             players={players}
-            onScore={countScore}
             onReset={onReset}
             onSave={saveGame}
           />
@@ -63,34 +71,70 @@ export default function App() {
         <Route path="/history">
           <HistoryPage history={history} />
         </Route>
+        <Holes
+          players={players}
+          countScore={countScore}
+          onNext={resetScore}
+          onPrev={decrHole}
+          onReset={onReset}
+          onSave={saveGame}
+          disabled={!isNextHoleAllowed}
+          hole={currentHole + 1}
+        />
       </Switch>
     </Grid>
   )
 
   function addPlayer({ nameOfPlayer }) {
-    setPlayers([{ name: nameOfPlayer, score: 0 }, ...players])
+    setPlayers([{ name: nameOfPlayer, score: 0, holes: [] }, ...players])
   }
-
   function resetForm() {
     setPlayers([])
   }
-
   function onReset() {
     setPlayers([])
   }
 
-  function countScore(index) {
-    const currentPlayer = players[index]
+  function countScore(playerIndex) {
+    const currentPlayer = players[playerIndex]
+    const currentScore = currentPlayer.holes[currentHole]?.score ?? 0
+
     setPlayers([
-      ...players.slice(0, index),
-      { ...currentPlayer, score: currentPlayer.score + 1 },
-      ...players.slice(index + 1),
+      ...players.slice(0, playerIndex),
+      {
+        ...currentPlayer,
+        score: currentPlayer.score + 1,
+        holes: [
+          ...currentPlayer.holes.slice(0, currentHole),
+          {
+            ...currentPlayer.holes[currentHole],
+            score: currentScore + 1,
+            name: currentHole + 1,
+          },
+          ...currentPlayer.holes.slice(currentHole + 1),
+        ],
+      },
+      ...players.slice(playerIndex + 1),
     ])
+  }
+
+  function resetScore() {
+    setCurrentHole(currentHole + 1)
+    players.map(player => (player.score = 0))
+  }
+
+  function decrHole() {
+    setCurrentHole(currentHole - 1)
+  }
+
+  function resetHole() {
+    setCurrentHole(0)
   }
 
   function saveGame() {
     setHistory([{ players, dateOfGame, id: uuidv4() }, ...history])
     setPlayers([])
+    setCurrentHole(1)
     push('/history')
   }
 }
