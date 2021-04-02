@@ -66,7 +66,7 @@ export const HoleNameDt = styled.dt`
   line-height: 50px;
 `
 export const HoleScoreDd = styled.dd`
-  color: var(--primary);
+  color: var(--secondary);
   border: 1px solid var(--primary);
   width: 50px;
   height: 50px;
