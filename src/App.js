@@ -41,7 +41,7 @@ export default function App() {
             players={players}
             addPlayer={addPlayer}
             resetForm={resetForm}
-            // resetHoleOne={resetHole}
+            resetHoleOne={resetHole}
           />
         </Route>
         <Route path="/winner">
@@ -121,9 +121,9 @@ export default function App() {
     setCurrentHole(currentHole - 1)
   }
 
-  // function resetHole() {
-  //   setCurrentHole(1)
-  // }
+  function resetHole() {
+    setCurrentHole(0)
+  }
 
   function saveGame() {
     setHistory([{ players, dateOfGame, id: uuidv4() }, ...history])
