@@ -25,19 +25,59 @@ export default function HistoryEntry({ players, dateOfGame }) {
         ''
       ) : (
         <div>
-          {players.map((player, index) => (
-            <PlayerWrapper>
-              <PlayerButton key={index} hidden={!isGameDetailsVisible}>
+          {players.map((player, playerIndex) => (
+            <PlayerWrapper key={playerIndex}>
+              <PlayerButton hidden={!isGameDetailsVisible}>
                 <span>{player.name}</span>
-                <span>{player.score}</span>
+                <span>{calculateScore(player.holes)}</span>
               </PlayerButton>
+              <ScoreCardDl>
+                {player.holes.map((hole, index) => (
+                  <div key={index}>
+                    <HoleNameDt>{hole.name}</HoleNameDt>
+                    <HoleScoreDd>{hole.score}</HoleScoreDd>
+                  </div>
+                ))}
+              </ScoreCardDl>
             </PlayerWrapper>
           ))}
         </div>
       )}
+      {console.log(players)}
     </Wrapper>
   )
+
+  function calculateScore(holes) {
+    return holes.reduce((acc, hole) => acc + hole.score, 0)
+  }
 }
+
+export const ScoreCardDl = styled.dl`
+  display: flex;
+  text-align: center;
+`
+export const HoleNameDt = styled.dt`
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  margin-right: -1px;
+  margin-bottom: -1px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+`
+export const HoleScoreDd = styled.dd`
+  color: var(--secondary);
+  border: 1px solid var(--primary);
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  margin-right: -1px;
+  line-height: 50px;
+`
+
+export const PlayerWrapper = styled.div`
+  padding-bottom: 20px;
+`
 
 export const Wrapper = styled.div`
   display: grid;
@@ -51,9 +91,6 @@ export const DateOfGameButton = styled(Button)`
   background-color: var(--transparent);
   text-align: left;
   width: 100%;
-`
-export const PlayerWrapper = styled.div`
-  padding-bottom: 20px;
 `
 
 export const PlayerButton = styled(Button)`
