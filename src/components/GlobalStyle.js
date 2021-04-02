@@ -22,7 +22,7 @@ export default createGlobalStyle`
     font-family: gesta, sans-serif;
     font-size: 112.5%;
     line-height: 1.5;
-    background-image: var(--bgGradient)
+    background-color: #293133;
   }
   
   input, textarea {

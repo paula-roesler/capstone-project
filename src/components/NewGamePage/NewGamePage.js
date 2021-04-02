@@ -32,7 +32,7 @@ export default function NewGamePage({
         <Button
           bgcolor="var(--secondary)"
           hidden={players.length <= 1}
-          onClick={resetHoleOne}
+          // onClick={resetHoleOne}
           as={NavLink}
           to="/one"
         >

@@ -15,6 +15,7 @@ export default function App() {
 
   const { push } = useHistory()
 
+  // Button Next disabled, bis alle player einen score haben
   const isNextHoleAllowed = players.every(
     player => player.holes.length === currentHole + 1
   )
@@ -40,7 +41,7 @@ export default function App() {
             players={players}
             addPlayer={addPlayer}
             resetForm={resetForm}
-            resetHoleOne={resetHole}
+            // resetHoleOne={resetHole}
           />
         </Route>
         <Route path="/winner">
@@ -120,13 +121,14 @@ export default function App() {
     setCurrentHole(currentHole - 1)
   }
 
-  function resetHole() {
-    setCurrentHole(1)
-  }
+  // function resetHole() {
+  //   setCurrentHole(1)
+  // }
 
   function saveGame() {
     setHistory([{ players, dateOfGame, id: uuidv4() }, ...history])
     setPlayers([])
+    setCurrentHole(1)
     push('/history')
   }
 }

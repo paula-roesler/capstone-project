@@ -19,8 +19,8 @@ export default function Holes({
             src="./../images/Hole-1.svg"
             alt="Hole One"
             par="Par 4"
-            distMen="yellow 351m"
-            distWomen="red 331m"
+            distMen="351"
+            distWomen="331"
             players={players}
             onScore={countScore}
             resetScore={onNext}
@@ -35,12 +35,13 @@ export default function Holes({
             hole={hole}
             src="./../images/Hole-2.svg"
             par="Par 3"
-            distMen="yellow 351m"
-            distWomen="red 331m"
+            distMen="351"
+            distWomen="331"
             players={players}
             onScore={countScore}
             resetScore={onNext}
             onPrev={onPrev}
+            disabled={disabled}
             prev="/one"
             next="/eighteen"
           />
@@ -50,12 +51,13 @@ export default function Holes({
             hole={hole}
             src="./../images/Hole-18.svg"
             par="Par 5"
-            distMen="yellow 351m"
-            distWomen="red 331m"
+            distMen="351"
+            distWomen="331"
             players={players}
             visible={visible}
             onScore={countScore}
             onPrev={onPrev}
+            disabled={disabled}
             prev="/two"
             next="/winner"
           />

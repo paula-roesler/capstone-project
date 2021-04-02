@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom'
-
 import styled from 'styled-components/macro'
 import { ReactComponent as Home } from '../../assets/home.svg'
 import HistoryEntry from '../HistoryEntry'
 import Button from '../Button'
 
-export default function HistoryPage({ history, resetHoleOne, id }) {
+export default function HistoryPage({ history }) {
   const home = <Home />
   return (
     <HistoryWrapper>
-      <NavigationButton as={Link} to="/" onClick={resetHoleOne}>
+      <NavigationButton as={Link} to="/">
         {home}
       </NavigationButton>
       <GameHistoryWrapper>

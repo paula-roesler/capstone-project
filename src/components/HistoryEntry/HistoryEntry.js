@@ -53,16 +53,19 @@ export default function HistoryEntry({ players, dateOfGame }) {
 }
 
 export const HoleScoreDd = styled.dd`
-  background-color: coral;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 5px;
 `
 
 export const HoleNameDt = styled.dt`
-  background-color: skyblue;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 5px;
+  margin: 3px;
 `
 
-export const ScoreCardDl = styled.dl`
-  background-color: whitesmoke;
-`
+export const ScoreCardDl = styled.dl``
 
 export const PlayerWrapper = styled.div`
   padding-bottom: 20px;

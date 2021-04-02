@@ -23,11 +23,26 @@ export default function HolePage({
     <Wrapper>
       <HoleWrapper>
         <h2>Hole {hole}</h2>
+        <ButtonWrapper>
+          <NavButtonRight
+            as={Link}
+            to={next}
+            onClick={resetScore}
+            disabled={disabled}
+          >
+            &gt;
+          </NavButtonRight>
+          <NavButtonLeft as={Link} to={prev} onClick={onPrev}>
+            &lt;
+          </NavButtonLeft>
+        </ButtonWrapper>
         <HoleGraphic src={src} alt={alt} />
-        <Par>{par}</Par>
-        <Distances>
-          {distMen} + ' // ' + {distWomen}
-        </Distances>
+        <Details>
+          <Par></Par>
+          <Distances>
+            {par} / Men: {distMen} m / Women: {distWomen} m
+          </Distances>
+        </Details>
       </HoleWrapper>
       <PlayersWrapper>
         {players.map(({ name, score }, index) => (
@@ -39,12 +54,6 @@ export default function HolePage({
             disabled={players.length <= 1}
           />
         ))}
-        <Button as={Link} to={next} onClick={resetScore} disabled={disabled}>
-          next
-        </Button>
-        <Button as={Link} to={prev} onClick={onPrev}>
-          prev
-        </Button>
       </PlayersWrapper>
     </Wrapper>
   )
@@ -59,6 +68,14 @@ export const HoleWrapper = styled.div`
   padding: 10px;
 `
 
+export const Details = styled.div`
+  font-size: 16px;
+  color: var(--primary);
+  text-align: left;
+  border: 1px solid var(--primary);
+  padding: 15px;
+`
+
 export const Par = styled.div`
   color: var(--primary);
 `
@@ -69,4 +86,29 @@ export const Distances = styled.div`
 export const PlayersWrapper = styled.div`
   display: grid;
   gap: 20px;
+  position: relative;
+`
+
+export const NavButtonLeft = styled(Button)`
+  width: 40px;
+  height: 40px;
+  border-radius: none;
+  position: absolute;
+  left: 0;
+  top: 120px;
+`
+
+export const NavButtonRight = styled(Button)`
+  width: 40px;
+  height: 40px;
+  border-radius: none;
+  position: absolute;
+  right: 0;
+  top: 120px;
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-items: space-between;
+  position: relative;
 `
