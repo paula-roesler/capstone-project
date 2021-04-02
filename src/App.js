@@ -99,8 +99,6 @@ export default function App() {
       },
       ...players.slice(playerIndex + 1),
     ])
-
-    console.log(players)
   }
 
   function resetScore() {
