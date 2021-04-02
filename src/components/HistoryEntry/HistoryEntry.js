@@ -34,8 +34,8 @@ export default function HistoryEntry({ players, dateOfGame }) {
               <ScoreCardDl>
                 {player.holes.map((hole, index) => (
                   <div key={index}>
-                    <HoleNameDt>Hole: {hole.name}</HoleNameDt>
-                    <HoleScoreDd>Score: {hole.score}</HoleScoreDd>
+                    <HoleNameDt>{hole.name}</HoleNameDt>
+                    <HoleScoreDd>{hole.score}</HoleScoreDd>
                   </div>
                 ))}
               </ScoreCardDl>
@@ -52,20 +52,28 @@ export default function HistoryEntry({ players, dateOfGame }) {
   }
 }
 
-export const HoleScoreDd = styled.dd`
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  padding: 5px;
+export const ScoreCardDl = styled.dl`
+  display: flex;
+  text-align: center;
 `
-
 export const HoleNameDt = styled.dt`
   color: var(--primary);
   border: 1px solid var(--primary);
-  padding: 5px;
-  margin: 3px;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
 `
-
-export const ScoreCardDl = styled.dl``
+export const HoleScoreDd = styled.dd`
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  margin-right: -1px;
+  line-height: 50px;
+`
 
 export const PlayerWrapper = styled.div`
   padding-bottom: 20px;

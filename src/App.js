@@ -15,7 +15,6 @@ export default function App() {
 
   const { push } = useHistory()
 
-  // Button Next disabled, bis alle player einen score haben
   const isNextHoleAllowed = players.every(
     player => player.holes.length === currentHole + 1
   )
@@ -63,7 +62,7 @@ export default function App() {
           onReset={onReset}
           onSave={saveGame}
           disabled={!isNextHoleAllowed}
-          hole={currentHole}
+          hole={currentHole + 1}
         />
       </Switch>
     </Grid>
@@ -79,7 +78,6 @@ export default function App() {
     setPlayers([])
   }
 
-  // click auf Scorebutton
   function countScore(playerIndex) {
     const currentPlayer = players[playerIndex]
     const currentScore = currentPlayer.holes[currentHole]?.score ?? 0
@@ -105,18 +103,11 @@ export default function App() {
     console.log(players)
   }
 
-  // zusammen zählen des Scores
-  // function calculateScore(holes) {
-  //   return holes.reduce((acc, hole) => acc + hole.score, 0)
-  // }
-
-  // click auf next
   function resetScore() {
     setCurrentHole(currentHole + 1)
     players.map(player => (player.score = 0))
   }
 
-  // click auf prev
   function decrHole() {
     setCurrentHole(currentHole - 1)
   }
