@@ -7,28 +7,17 @@ import NewGamePage from './components/NewGamePage'
 import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
+import Weather from './components/Weather'
 
 export default function App() {
-  // wetter api openweathermap
-  const [apiData, setApiData] = useState({})
-  const [getState, setGetState] = useState('tamilnadu')
-  const [state, setState] = useState('tamilnadu')
-
-  const apiKey = process.env.REACT_APP_API_KEY
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}`
-
-  // Side effect
-  useEffect(() => {
-    fetch(apiUrl)
-      .then(res => res.json())
-      .then(data => setApiData(data))
-  }, [apiUrl])
-
-  // wetter api
-
   const [players, setPlayers] = useState([])
   const [currentHole, setCurrentHole] = useState(0)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
+  const [weather, setWeather] = useState([])
+
+  useEffect(() => {
+    getAllWeatherData()
+  }, [])
 
   const { push } = useHistory()
 
@@ -70,6 +59,11 @@ export default function App() {
         </Route>
         <Route path="/history">
           <HistoryPage history={history} />
+        </Route>
+        <Route path="/weather">
+          <div>
+            <Weather weather={weather} />
+          </div>
         </Route>
         <Holes
           players={players}
@@ -136,5 +130,15 @@ export default function App() {
     setPlayers([])
     setCurrentHole(1)
     push('/history')
+  }
+
+  function getAllWeatherData(
+    url = 'https://api.openweathermap.org/data/2.5/onecall?&lat=53.551086&lon=9.993682&lang=de&units=metric&appid=8cbab16f78b3f6fcde72b1e740b5e97a'
+  ) {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setWeather(data)
+      })
   }
 }
