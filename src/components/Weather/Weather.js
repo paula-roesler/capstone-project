@@ -5,9 +5,11 @@ export default function Weather(weather) {
 
   return (
     <WeatherForecast>
-      <div>Latitude: {weather['weather']['lat']}</div>
-      <div>Longitude: {weather['weather']['lon']}</div>
-      <div>Latitude: {weather['weather']['lat']}</div>
+      <div>City: {weather['weather']['city']['name']}</div>
+      <div>Temperature: {weather['weather']['list'][0]['main']['temp']}</div>
+      <div>
+        Feels like: {weather['weather']['list'][0]['main']['feels_like']}
+      </div>
     </WeatherForecast>
   )
 }

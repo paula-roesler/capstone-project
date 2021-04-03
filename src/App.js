@@ -133,7 +133,7 @@ export default function App() {
   }
 
   function getAllWeatherData(
-    url = 'https://api.openweathermap.org/data/2.5/onecall?&lat=53.551086&lon=9.993682&lang=de&units=metric&appid=8cbab16f78b3f6fcde72b1e740b5e97a'
+    url = 'http://api.openweathermap.org/data/2.5/forecast?q=Hamburg,DE&units=metric&appid=8cbab16f78b3f6fcde72b1e740b5e97a'
   ) {
     fetch(url)
       .then(res => res.json())
