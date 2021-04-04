@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import WeatherForecastCard from './WeatherForecastCard'
+import WeatherForecastCard from '../WeatherForecastCard'
 
 export default function Weather(weather, date) {
   console.log(weather)

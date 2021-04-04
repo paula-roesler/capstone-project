@@ -21,11 +21,11 @@ export default function App() {
   useEffect(() => {
     getAllWeatherData()
   }, [])
-
   // Weather API End
 
   const { push } = useHistory()
 
+  // funktioniert noch nicht
   const isNextHoleAllowed = players.every(
     player => player.holes.length === currentHole + 1
   )

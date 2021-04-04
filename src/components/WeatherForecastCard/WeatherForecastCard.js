@@ -23,13 +23,12 @@ export default function WeatherForecastCard(weather, date) {
           <ForecastDegree>{degDay1} °C</ForecastDegree>
           <ForecastIcon>
             <img
-              src={`https://openweathermap.org/img/wn/${weather['weather']['weather']['list'][0]['weather'][0]['icon']}.png`}
+              src={`src=./../images/weathericons/${weather['weather']['weather']['list'][0]['weather'][0]['icon']}.svg`}
               alt=""
             />
           </ForecastIcon>
         </ForecastHead>
         <ForecastDescription>
-          Main:{' '}
           {
             weather['weather']['weather']['list'][0]['weather'][0][
               'description'
@@ -48,13 +47,13 @@ export default function WeatherForecastCard(weather, date) {
           <ForecastDegree>{degDay2} °C</ForecastDegree>
           <ForecastIcon>
             <img
-              src={`https://openweathermap.org/img/wn/${weather['weather']['weather']['list'][9]['weather'][0]['icon']}.png`}
+              src={`src=./../images/weathericons/${weather['weather']['weather']['list'][9]['weather'][0]['icon']}.svg`}
               alt=""
             />
           </ForecastIcon>
         </ForecastHead>
+
         <ForecastDescription>
-          Main:{' '}
           {
             weather['weather']['weather']['list'][9]['weather'][0][
               'description'
@@ -72,7 +71,8 @@ export default function WeatherForecastCard(weather, date) {
 }
 
 export const ForecastDate = styled.h4`
-  color: var(--background);
+  color: var(--primary);
+  margin-bottom: 0;
 `
 
 export const ForecastHead = styled.div`
@@ -82,11 +82,13 @@ export const ForecastHead = styled.div`
 
 export const ForecastIcon = styled.div`
   width: 60px;
-  height: 60px;
+  height: 20px;
+  padding: 7px;
 `
 export const ForecastDegree = styled.p`
   font-size: 150%;
   margin: 0;
+  padding-top: 10px;
   width: 60px;
   height: 60px;
 `
@@ -98,11 +100,11 @@ export const ForecastDay = styled.div`
   padding: 1px 20px 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
-  background-color: #c6d7de;
+  background-color: var(--background);
 `
 
 export const ForecastWrapper = styled.div`
   display: grid;
   gap: 20px;
-  color: var(--background);
+  color: var(--primary);
 `
