@@ -20,7 +20,7 @@ export default function AddPlayerForm({
           disabled={disabled}
           title="addPlayerInput"
           autoFocus={true}
-          autocomplete="off"
+          autoComplete="off"
         ></input>
       </label>
       <Button disabled={disabled} title="addPlayerButton">

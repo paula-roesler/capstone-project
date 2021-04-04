@@ -11,8 +11,10 @@ export default function NewGamePage({
   resetForm,
   resetHoleOne,
   name,
+  weather,
 }) {
   const sun = <Sun />
+  console.log(weather)
   return (
     <>
       <NavigationButtonWeather as={Link} to="/weather">
