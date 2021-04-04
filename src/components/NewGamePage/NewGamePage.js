@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Sun } from '../../assets/sun.svg'
+
 import AddPlayerForm from '../AddPlayerForm'
 import Button from '../Button'
 
@@ -11,10 +12,8 @@ export default function NewGamePage({
   resetForm,
   resetHoleOne,
   name,
-  weather,
 }) {
   const sun = <Sun />
-  console.log(weather)
   return (
     <>
       <NavigationButtonWeather as={Link} to="/weather">
@@ -82,6 +81,32 @@ export const NavigationButtonWeather = styled(Button)`
   position: absolute;
   top: -1px;
   right: 20px;
+
+  &:hover {
+    border: 1px solid var(--white);
+    color: var(--white);
+  }
+
+  &:disabled {
+    background-color: var(--disabled);
+  }
+`
+
+export const NavigationButtonHistory = styled(Button)`
+  font-family: inherit;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  background-color: transparent;
+  border-radius: 0;
+  padding: 10px 10px;
+  width: 50px;
+  height: 47px;
+  position: absolute;
+  top: -1px;
+  right: 80px;
 
   &:hover {
     border: 1px solid var(--white);
