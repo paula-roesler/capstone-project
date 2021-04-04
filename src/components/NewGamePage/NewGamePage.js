@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Sun } from '../../assets/sun.svg'
+
 import AddPlayerForm from '../AddPlayerForm'
 import Button from '../Button'
 
@@ -15,9 +16,9 @@ export default function NewGamePage({
   const sun = <Sun />
   return (
     <>
-      <NavigationButton as={Link} to="/weather">
+      <NavigationButtonWeather as={Link} to="/weather">
         {sun}
-      </NavigationButton>
+      </NavigationButtonWeather>
 
       <AddPlayerForm
         key={name}
@@ -65,7 +66,7 @@ export const ButtonWrapper = styled.div`
   gap: 20px;
   padding-top: 20px;
 `
-export const NavigationButton = styled(Button)`
+export const NavigationButtonWeather = styled(Button)`
   font-family: inherit;
   font-size: 18px;
   text-decoration: none;
@@ -79,7 +80,33 @@ export const NavigationButton = styled(Button)`
   height: 47px;
   position: absolute;
   top: -1px;
-  right: 30px;
+  right: 20px;
+
+  &:hover {
+    border: 1px solid var(--white);
+    color: var(--white);
+  }
+
+  &:disabled {
+    background-color: var(--disabled);
+  }
+`
+
+export const NavigationButtonHistory = styled(Button)`
+  font-family: inherit;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  background-color: transparent;
+  border-radius: 0;
+  padding: 10px 10px;
+  width: 50px;
+  height: 47px;
+  position: absolute;
+  top: -1px;
+  right: 80px;
 
   &:hover {
     border: 1px solid var(--white);

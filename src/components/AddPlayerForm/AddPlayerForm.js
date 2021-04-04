@@ -10,7 +10,7 @@ export default function AddPlayerForm({
   return (
     <Form onSubmit={handleSubmit}>
       <label>
-        <h3>Add Player:</h3>
+        <Headline>Add Player:</Headline>
         <input
           name="playerName"
           required
@@ -20,7 +20,7 @@ export default function AddPlayerForm({
           disabled={disabled}
           title="addPlayerInput"
           autoFocus={true}
-          autocomplete="off"
+          autoComplete="off"
         ></input>
       </label>
       <Button disabled={disabled} title="addPlayerButton">
@@ -41,6 +41,11 @@ export default function AddPlayerForm({
     playerName.focus()
   }
 }
+
+export const Headline = styled.h3`
+  color: var(--primary);
+  margin-top: 40px;
+`
 
 export const Form = styled.form`
   display: grid;

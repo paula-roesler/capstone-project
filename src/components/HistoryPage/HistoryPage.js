@@ -7,17 +7,19 @@ import Button from '../Button'
 export default function HistoryPage({ history, resetHoleOne }) {
   const home = <Home />
   return (
-    <HistoryWrapper>
+    <>
       <NavigationButton as={Link} to="/" onClick={resetHoleOne}>
         {home}
       </NavigationButton>
-      <GameHistoryWrapper>
-        <h2>Game history</h2>
-        {history.map(({ dateOfGame, players, id }) => (
-          <HistoryEntry key={id} dateOfGame={dateOfGame} players={players} />
-        ))}
-      </GameHistoryWrapper>
-    </HistoryWrapper>
+      <HistoryWrapper>
+        <GameHistoryWrapper>
+          <h2>Game history</h2>
+          {history.map(({ dateOfGame, players, id }) => (
+            <HistoryEntry key={id} dateOfGame={dateOfGame} players={players} />
+          ))}
+        </GameHistoryWrapper>
+      </HistoryWrapper>
+    </>
   )
 }
 export const HistoryWrapper = styled.div`
@@ -40,8 +42,8 @@ export const NavigationButton = styled(Button)`
   width: 50px;
   height: 47px;
   position: absolute;
-  top: -21px;
-  right: 30px;
+  top: -1px;
+  right: 20px;
 
   &:hover {
     border: 1px solid var(--white);
