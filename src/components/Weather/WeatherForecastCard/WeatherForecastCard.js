@@ -18,7 +18,7 @@ export default function WeatherForecastCard(weather, date) {
     <ForecastWrapper>
       <h2>Hamburg weather</h2>
       <ForecastDay>
-        <h4>{day1}</h4>
+        <ForecastDate>{day1}</ForecastDate>
         <ForecastHead>
           <ForecastDegree>{degDay1} °C</ForecastDegree>
           <ForecastIcon>
@@ -43,7 +43,7 @@ export default function WeatherForecastCard(weather, date) {
         </ForecastDescription>
       </ForecastDay>
       <ForecastDay>
-        <h4>{day2}</h4>
+        <ForecastDate>{day2}</ForecastDate>
         <ForecastHead>
           <ForecastDegree>{degDay2} °C</ForecastDegree>
           <ForecastIcon>
@@ -70,6 +70,11 @@ export default function WeatherForecastCard(weather, date) {
     </ForecastWrapper>
   )
 }
+
+export const ForecastDate = styled.h4`
+  color: var(--background);
+`
+
 export const ForecastHead = styled.div`
   display: flex;
   justify-items: space-between;
@@ -93,9 +98,11 @@ export const ForecastDay = styled.div`
   padding: 1px 20px 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+  background-color: #c6d7de;
 `
 
 export const ForecastWrapper = styled.div`
   display: grid;
   gap: 20px;
+  color: var(--background);
 `
