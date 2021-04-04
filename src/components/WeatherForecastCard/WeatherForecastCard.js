@@ -16,7 +16,7 @@ export default function WeatherForecastCard(weather, date) {
 
   return (
     <ForecastWrapper>
-      <h2>Hamburg weather</h2>
+      <Headline>Hamburg</Headline>
       <ForecastDay>
         <ForecastDate>{day1}</ForecastDate>
         <ForecastHead>
@@ -69,6 +69,12 @@ export default function WeatherForecastCard(weather, date) {
     </ForecastWrapper>
   )
 }
+
+export const Headline = styled.h2`
+  color: var(--primary);
+  margin-top: 35px;
+  margin-bottom: 0;
+`
 
 export const ForecastDate = styled.h4`
   color: var(--primary);
