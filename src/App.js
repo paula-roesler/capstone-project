@@ -7,14 +7,25 @@ import NewGamePage from './components/NewGamePage'
 import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
+import Weather from './components/Weather'
 
 export default function App() {
   const [players, setPlayers] = useState([])
   const [currentHole, setCurrentHole] = useState(0)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
 
+  // Weather API
+  const [weather, setWeather] = useState([])
+  const apiKey = process.env.REACT_APP_API_KEY
+
+  useEffect(() => {
+    getAllWeatherData()
+  }, [])
+  // Weather API End
+
   const { push } = useHistory()
 
+  // funktioniert noch nicht
   const isNextHoleAllowed = players.every(
     player => player.holes.length === currentHole + 1
   )
@@ -53,6 +64,11 @@ export default function App() {
         </Route>
         <Route path="/history">
           <HistoryPage history={history} />
+        </Route>
+        <Route path="/weather">
+          <div>
+            <Weather weather={weather} />
+          </div>
         </Route>
         <Holes
           players={players}
@@ -119,5 +135,15 @@ export default function App() {
     setPlayers([])
     setCurrentHole(1)
     push('/history')
+  }
+
+  function getAllWeatherData(
+    url = `https://api.openweathermap.org/data/2.5/forecast?q=Hamburg,DE&units=metric&appid=${apiKey}`
+  ) {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setWeather(data)
+      })
   }
 }

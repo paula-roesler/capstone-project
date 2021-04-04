@@ -39,12 +39,13 @@ export default createGlobalStyle`
       border-color: transparent;
       box-shadow: 0 0 4px 1px var(--primary);
     }
-
+    outline: none !important;
   }
   input, textarea {
     color: var(--primary);
     border: var(--border-width) solid var(--primary);
     padding: 10px;
+
   }
 
   h1, h2, h3, h4, h5, h6 {

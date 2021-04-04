@@ -19,4 +19,5 @@ export default styled.button`
   &:disabled {
     background-color: var(--disabled);
   }
+  outline: none !important;
 `
