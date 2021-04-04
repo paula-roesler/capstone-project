@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-export default function WeatherForecastCard(weather, date) {
+export default function WeatherForecastCard(weather) {
   const date1 = new Date(weather['weather']['weather']['list'][0]['dt'] * 1000)
   const day1 = date1.toDateString()
   const date2 = new Date(weather['weather']['weather']['list'][9]['dt'] * 1000)
@@ -21,6 +21,7 @@ export default function WeatherForecastCard(weather, date) {
         <ForecastDate>{day1}</ForecastDate>
         <ForecastHead>
           <ForecastDegree>{degDay1} °C</ForecastDegree>
+
           <ForecastIcon>
             <img
               src={`src=./../images/weathericons/${weather['weather']['weather']['list'][0]['weather'][0]['icon']}.svg`}
