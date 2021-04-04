@@ -3,6 +3,8 @@ import styled from 'styled-components/macro'
 import Button from '../Button'
 import Player from '../Player'
 import HoleGraphic from '../HoleGraphic'
+import { ReactComponent as ArrowLeft } from '../../assets/arrow-left.svg'
+import { ReactComponent as ArrowRight } from '../../assets/arrow-right.svg'
 
 export default function HolePage({
   hole,
@@ -19,6 +21,8 @@ export default function HolePage({
   resetScore,
   onPrev,
 }) {
+  const arrowleft = <ArrowLeft />
+  const arrowright = <ArrowRight />
   return (
     <Wrapper>
       <HoleWrapper>
@@ -30,10 +34,10 @@ export default function HolePage({
             onClick={resetScore}
             disabled={disabled}
           >
-            &gt;
+            {arrowright}
           </NavButtonRight>
           <NavButtonLeft as={Link} to={prev} onClick={onPrev}>
-            &lt;
+            {arrowleft}
           </NavButtonLeft>
         </ButtonWrapper>
         <HoleGraphic src={src} alt={alt} />
@@ -94,8 +98,10 @@ export const NavButtonLeft = styled(Button)`
   height: 40px;
   border-radius: none;
   position: absolute;
-  left: 0;
+  left: -15px;
   top: 120px;
+  color: var(--primary);
+  background-color: var(--background);
 `
 
 export const NavButtonRight = styled(Button)`
@@ -105,6 +111,8 @@ export const NavButtonRight = styled(Button)`
   position: absolute;
   right: 0;
   top: 120px;
+  color: var(--primary);
+  background-color: var(--background);
 `
 
 export const ButtonWrapper = styled.div`
