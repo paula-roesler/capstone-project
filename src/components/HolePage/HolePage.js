@@ -68,9 +68,7 @@ export const Wrapper = styled.div`
   gap: 20px;
   text-align: center;
 `
-export const HoleWrapper = styled.div`
-  padding: 10px;
-`
+export const HoleWrapper = styled.div``
 
 export const Details = styled.div`
   font-size: 16px;
@@ -78,6 +76,7 @@ export const Details = styled.div`
   text-align: left;
   border: 1px solid var(--primary);
   padding: 15px;
+  text-align: center;
 `
 
 export const Par = styled.div`
@@ -98,7 +97,7 @@ export const NavButtonLeft = styled(Button)`
   height: 40px;
   border-radius: none;
   position: absolute;
-  left: -15px;
+  left: -10px;
   top: 120px;
   color: var(--primary);
   background-color: var(--background);
@@ -109,7 +108,7 @@ export const NavButtonRight = styled(Button)`
   height: 40px;
   border-radius: none;
   position: absolute;
-  right: 0;
+  right: 5px;
   top: 120px;
   color: var(--primary);
   background-color: var(--background);
