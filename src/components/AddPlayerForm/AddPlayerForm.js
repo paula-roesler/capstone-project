@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro'
 import Button from '../Button'
-// test
 
 export default function AddPlayerForm({
   onAddPlayer,

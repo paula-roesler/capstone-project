@@ -1,9 +1,20 @@
 import AddPlayerForm from './AddPlayerForm'
-// import { action } from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'AddPlayerForm',
   component: 'AdAddPlayerForm',
+  parameters: {
+    actions: {
+      handles: ['click .btn'],
+    },
+  },
 }
 
-export const defaultAddPlayerForm = () => <AddPlayerForm />
+const DefaultAddPlayerForm = (args) => <AddPlayerForm {...args} />
+
+export const PlayerForm = DefaultAddPlayerForm.bind({})
+
+PlayerForm.args = {
+  onAddPlayer: action('onClick')
+}
