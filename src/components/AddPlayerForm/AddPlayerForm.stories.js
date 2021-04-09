@@ -6,9 +6,16 @@ export default {
   component: 'AdAddPlayerForm',
   parameters: {
     actions: {
-      handles: ['mouseover', 'click .btn'],
+      handles: ['click .btn'],
     },
   },
 }
 
-export const defaultAddPlayerForm = () => <AddPlayerForm />
+const DefaultAddPlayerForm = (args) => <AddPlayerForm {...args} />
+
+export const PlayerForm = DefaultAddPlayerForm.bind({})
+
+PlayerForm.args = {
+  onAddPlayer: action('onClick')
+}
+
