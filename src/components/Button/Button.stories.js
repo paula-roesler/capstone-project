@@ -4,7 +4,12 @@ import { action } from '@storybook/addon-actions'
 export default {
   title: 'Button',
   component: 'Button',
-  parameters: { actions: { argTypesRegex: '^on.*' } },
 }
 
-export const defaultButton = () => <Button>test</Button>
+const DefaultButton = (args) => <Button {...args}>Click me</Button>
+
+export const PrimaryButton = DefaultButton.bind({})
+
+PrimaryButton.args = {
+  onClick: action('onClick')
+}
