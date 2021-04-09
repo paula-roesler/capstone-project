@@ -18,4 +18,3 @@ export const PlayerForm = DefaultAddPlayerForm.bind({})
 PlayerForm.args = {
   onAddPlayer: action('onClick')
 }
-
