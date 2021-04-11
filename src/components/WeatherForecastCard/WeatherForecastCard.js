@@ -55,7 +55,7 @@ export const ForecastDegree = styled.p`
   font-size: 150%;
   margin: 0;
   padding-top: 10px;
-  width: 60px;
+  width: 80px;
   height: 60px;
 `
 export const ForecastDescription = styled.div`
