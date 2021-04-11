@@ -7,7 +7,7 @@ import NewGamePage from './components/NewGamePage'
 import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
-import Weather from './components/Weather'
+import WeatherForecast from './components/WeatherForecast'
 
 export default function App() {
   const [players, setPlayers] = useState([])
@@ -67,7 +67,7 @@ export default function App() {
         </Route>
         <Route path="/weather">
           <div>
-            <Weather weather={weather} />
+            <WeatherForecast weather={weather} day={day}/>
           </div>
         </Route>
         <Holes
