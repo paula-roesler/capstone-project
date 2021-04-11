@@ -2,13 +2,13 @@ import styled from 'styled-components/macro'
 
 export default function WeatherForecastCard(weather) {
   const currentDay = parseInt(weather.day)
-  // const dayx = date1.toLocaleDateString()
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
   return (
     <ForecastWrapper>
       <ForecastDay>
             <ForecastDescription>
-            <ForecastDate>{new Date(weather['weather']['weather']['list'][currentDay]['dt'] * 1000).toDateString()}</ForecastDate>
+            <ForecastDate>{new Date(weather['weather']['weather']['list'][currentDay]['dt'] * 1000).toLocaleDateString('de-DE', options)}</ForecastDate>
               {
                 weather['weather']['weather']['list'][currentDay]['weather'][0][
                   'description'
