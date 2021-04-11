@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 export default function WeatherForecastCard(weather) {
   const currentDay = parseInt(weather.day)
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
 
   return (
     <ForecastWrapper>
