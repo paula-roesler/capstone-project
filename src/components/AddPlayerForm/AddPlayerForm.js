@@ -12,6 +12,7 @@ export default function AddPlayerForm({
         <Headline>Add Player:</Headline>
         <input
           name="playerName"
+          data-testid="inputPlayer"
           required
           placeholder={placeholderText}
           minLength="2"
