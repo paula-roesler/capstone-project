@@ -8,7 +8,7 @@ export default function WeatherForecastCard(weather) {
     <ForecastWrapper>
       <ForecastDay>
             <ForecastDescription>
-            <ForecastDate>{new Date(weather['weather']['weather']['list'][currentDay]['dt'] * 1000).toLocaleDateString('de-DE', options)}</ForecastDate>
+            <ForecastDate>{new Date(weather['weather']['weather']['list'][currentDay]['dt'] * 1000).toLocaleDateString('en-EN', options)}</ForecastDate>
               {
                 weather['weather']['weather']['list'][currentDay]['weather'][0][
                   'description'
