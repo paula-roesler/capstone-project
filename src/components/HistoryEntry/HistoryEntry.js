@@ -52,6 +52,42 @@ export default function HistoryEntry({ players, dateOfGame }) {
   }
 }
 
+export const Wrapper = styled.div`
+  display: grid;
+  gap: 20px;
+`
+export const DateOfGameButton = styled(Button)`
+  display: flex;
+  align-items: center;
+  font-size: 130%;
+  color: var(--primary);
+  background-color: var(--transparent);
+  text-align: left;
+  text-transform: none;
+  width: 100%;
+`
+export const ArrowSpan = styled.div`
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  padding-right: 10px;
+`
+export const DateSpan = styled.span`
+  color: var(--primary);
+  padding-left: 10px;
+`
+export const PlayerWrapper = styled.div`
+  padding-bottom: 20px;
+`
+export const PlayerButton = styled(Button)`
+  display: flex;
+  justify-content: space-between;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  border-radius: 0;
+  background-color: var(--transparent);
+  width: 100%;
+`
 export const ScoreCardDl = styled.dl`
   display: flex;
   text-align: center;
@@ -75,40 +111,3 @@ export const HoleScoreDd = styled.dd`
   line-height: 50px;
 `
 
-export const PlayerWrapper = styled.div`
-  padding-bottom: 20px;
-`
-
-export const Wrapper = styled.div`
-  display: grid;
-  gap: 20px;
-`
-export const DateOfGameButton = styled(Button)`
-  display: flex;
-  align-items: center;
-  font-size: 130%;
-  color: var(--primary);
-  background-color: var(--transparent);
-  text-align: left;
-  width: 100%;
-`
-
-export const PlayerButton = styled(Button)`
-  display: flex;
-  justify-content: space-between;
-  color: var(--secondary);
-  border: 1px solid var(--secondary);
-  border-radius: 0;
-  background-color: var(--transparent);
-  width: 100%;
-`
-export const ArrowSpan = styled.div`
-  display: flex;
-  align-items: center;
-  color: var(--primary);
-  padding-right: 10px;
-`
-export const DateSpan = styled.span`
-  color: var(--primary);
-  padding-left: 10px;
-`

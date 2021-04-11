@@ -8,6 +8,7 @@ import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
 import WeatherForecast from './components/WeatherForecast'
+import { DateOfGameButton } from './components/HistoryEntry/HistoryEntry'
 
 export default function App() {
   const [players, setPlayers] = useState([])
@@ -17,6 +18,7 @@ export default function App() {
   // Weather API
   const [weather, setWeather] = useState([])
   const apiKey = process.env.REACT_APP_API_KEY
+  let day = new Date().getDate()
 
   useEffect(() => {
     getAllWeatherData()
@@ -34,13 +36,9 @@ export default function App() {
     saveToLocal('history', history)
   }, [history])
 
-  let dt = new Date()
-  let minute = '' + dt.getMinutes()
-  let hour = '' + dt.getHours()
-  let month = '' + (dt.getMonth() + 1)
-  let day = '' + dt.getDate()
-  let year = dt.getFullYear()
-  let dateOfGame = `${year}-${month}-${day} (${hour}:${minute})`
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+  let dateOfGame = new Date().toLocaleDateString('en-EN', options)
+  
 
   return (
     <Grid>
