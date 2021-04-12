@@ -43,7 +43,6 @@ export default function HistoryEntry({ players, dateOfGame }) {
           ))}
         </div>
       )}
-      {console.log(players)}
     </Wrapper>
   )
 
