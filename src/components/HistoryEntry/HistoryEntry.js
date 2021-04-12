@@ -110,4 +110,3 @@ export const HoleScoreDd = styled.dd`
   margin-right: -1px;
   line-height: 50px;
 `
-
