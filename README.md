@@ -1,5 +1,5 @@
 # BIRDIE – die App für Golfer
-### Abschlussproject Web Development Bootcamp bei [neue fische - School and Pool for Digital Talent...](https://www.neuefische.de/) 
+Abschlussproject Web Development Bootcamp bei [neue fische - School and Pool for Digital Talent...](https://www.neuefische.de/) 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
