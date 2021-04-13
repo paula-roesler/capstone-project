@@ -10,4 +10,4 @@ Javascript
 Create-React-App
 
 ### Preview
-<img width="540" src="https://raw.githubusercontent.com/paula-roesler/capstone-project/main/src/assets/Birdie_Paula_Roesler.jpg" alt="Birdie - the golfers App" />
+<img width="840" src="https://raw.githubusercontent.com/paula-roesler/capstone-project/main/src/assets/Birdie_Paula_Roesler.jpg" alt="Birdie - the golfers App" />
