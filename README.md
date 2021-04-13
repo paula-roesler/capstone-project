@@ -1,9 +1,8 @@
-# BIRDIE – die App für Golfer :golf:
+# BIRDIE – the Golfers App :golf:
 
-Abschlussprojekt des dreimonatigen Web Development Bootcamp bei [neue fische](https://www.neuefische.de/) - School and Pool for Digital Talent 
+Final project of the three-months web development boot camp at [neue fische](https://www.neuefische.de/) - School and Pool for Digital Talent 
 
-
-Birdie ist eine App für Golfer. Mit Birdie lassen sich Wettspiele für die private Runde mit bis zu vier Freunden anlegen, Scores zählen und Ergebnisse speichern. Dank der integrierten Wettervorhersage ist man bestens auf die Runde vorbereitet.
+Birdie is an app for golfers. With Birdie you can create competitions for private rounds with up to four friends, count scores and save results. Thanks to the integrated weather forecast, you are well prepared for the round.
 
 
 
