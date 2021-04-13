@@ -7,6 +7,7 @@ export default createGlobalStyle`
     --primary: #87B8DE;
     --secondary: lightgreen;
     --disabled: #ABBDCF;
+    --error: #d36d6d;
     
     --bgGradient: linear-gradient(to top, #293133 0%, #313B3D 100%);
 

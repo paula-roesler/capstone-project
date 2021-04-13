@@ -2,43 +2,43 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { loadFromLocal, saveToLocal } from './lib/localStorage'
 import { v4 as uuidv4 } from 'uuid'
+import styled from 'styled-components/macro'
 import Grid from './components/Grid'
 import NewGamePage from './components/NewGamePage'
 import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
 import WeatherForecast from './components/WeatherForecast'
-import { DateOfGameButton } from './components/HistoryEntry/HistoryEntry'
 
 export default function App() {
   const [players, setPlayers] = useState([])
   const [currentHole, setCurrentHole] = useState(0)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
-
-  // Weather API
+  const [error, setError] = useState(null)
   const [weather, setWeather] = useState([])
+
   const apiKey = process.env.REACT_APP_API_KEY
   let day = new Date().getDate()
 
   useEffect(() => {
     getAllWeatherData()
   }, [])
-  // Weather API End
+
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }
+  let dateOfGame = new Date().toLocaleDateString('en-EN', options)
 
   const { push } = useHistory()
-
-  // funktioniert noch nicht
-  const isNextHoleAllowed = players.every(
-    player => player.holes.length === currentHole + 1
-  )
 
   useEffect(() => {
     saveToLocal('history', history)
   }, [history])
-
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-  let dateOfGame = new Date().toLocaleDateString('en-EN', options)
-  
 
   return (
     <Grid>
@@ -65,7 +65,8 @@ export default function App() {
         </Route>
         <Route path="/weather">
           <div>
-            <WeatherForecast weather={weather} day={day}/>
+            {error && <ErrorMessage>{error}</ErrorMessage>}
+            <WeatherForecast weather={weather} day={day} />
           </div>
         </Route>
         <Holes
@@ -75,7 +76,6 @@ export default function App() {
           onPrev={decrHole}
           onReset={onReset}
           onSave={saveGame}
-          disabled={!isNextHoleAllowed}
           hole={currentHole + 1}
         />
       </Switch>
@@ -139,9 +139,27 @@ export default function App() {
     url = `https://api.openweathermap.org/data/2.5/forecast?q=Hamburg,DE&units=metric&appid=${apiKey}`
   ) {
     fetch(url)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw Error(
+            'Oh, something went wrong. This is not the correct weather for your place. Please try again later.'
+          )
+        }
+        return res.json()
+      })
       .then(data => {
         setWeather(data)
       })
+      .catch(error => {
+        setError(error.message)
+      })
   }
 }
+
+export const ErrorMessage = styled.div`
+  color: var(--error);
+  border: 2px solid var(--error);
+  border-radius: 8px;
+  width: 70%;
+  padding: 20px;
+`
