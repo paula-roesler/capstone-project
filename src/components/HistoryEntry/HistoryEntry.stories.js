@@ -13,20 +13,29 @@ const DefaultHistoryEntry = args => (
   </MemoryRouter>
 )
 
-export const PageOfHistoryEntry = DefaultHistoryEntry.bind({})
-PageOfHistoryEntry.args = {
-  history: [
-    { key: 'id' },
-    { dateOfGame: 'dateOfGame' },
+export const EntryOfHistory = DefaultHistoryEntry.bind({})
+EntryOfHistory.args = {
+  dateOfGame: 'Wed, Apr 14, 2021, 3:40 PM',
+  players: [
     {
-      players: [
-        { name: 'Sue', score: 22 },
-        { name: 'Joe', score: 18 },
+      name: 'Sue',
+      score: 22,
+      holes: [
+        { name: '1', score: 3 },
+        { name: '2', score: 6 },
+        { name: '3', score: 8 },
+      ],
+    },
+    {
+      name: 'Joe',
+      score: 18,
+      holes: [
+        { name: '1', score: 5 },
+        { name: '2', score: 7 },
+        { name: '3', score: 9 },
       ],
     },
   ],
 
-  // addPlayer: action('onAddPlayer'),
-  // resetHoleOne: action('onStartGame'),
-  // resetForm: action('onReset'),
+  onClick: action('showHistoryEntry'),
 }
