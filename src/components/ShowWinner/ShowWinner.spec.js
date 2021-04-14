@@ -5,10 +5,10 @@ describe('ShowWinner', () => {
   it('renders the player with the lowest score, also if there are more than one', () => {
     const { container } = render(
       <ShowWinner
-        players={[
-          { name: 'Sue', score: 3 },
-          { name: 'Joe', score: 3 },
-          { name: 'Izzy', score: 4 },
+        newWinners={[
+          { name: 'Sue', overAllScore: 3 },
+          { name: 'Joe', overAllScore: 3 },
+          { name: 'Izzy', overAllScore: 4 },
         ]}
       />
     )
@@ -17,6 +17,5 @@ describe('ShowWinner', () => {
     expect(screen.queryByText('Izzy')).not.toBeInTheDocument()
     expect(container.firstChild).toMatchSnapshot()
   })
-
   screen.debug()
 })
