@@ -15,14 +15,18 @@ export default function App() {
   const [currentHole, setCurrentHole] = useState(0)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
   const [error, setError] = useState(null)
-  const [weather, setWeather] = useState([])
+  const [weather, setWeather] = useState(loadFromLocal('weather') ?? [])
 
   const apiKey = process.env.REACT_APP_API_KEY
   let day = new Date().getDate()
 
   useEffect(() => {
     getAllWeatherData()
-  }, [])
+  })
+
+  useEffect(() => {
+    saveToLocal('weather', weather)
+  }, [weather])
 
   const options = {
     weekday: 'long',
