@@ -1,20 +1,18 @@
-import AddPlayerForm from './AddPlayerForm'
 import { action } from '@storybook/addon-actions'
+import AddPlayerForm from './AddPlayerForm'
 
 export default {
   title: 'AddPlayerForm',
   component: 'AdAddPlayerForm',
-  parameters: {
-    actions: {
-      handles: ['click .btn'],
-    },
+  argTypes: {
+    borderColor: { control: 'color' },
   },
 }
 
-const DefaultAddPlayerForm = (args) => <AddPlayerForm {...args} />
+const DefaultAddPlayerForm = args => <AddPlayerForm {...args} />
 
 export const PlayerForm = DefaultAddPlayerForm.bind({})
-
 PlayerForm.args = {
-  onAddPlayer: action('onClick')
+  onAddPlayer: action('onClick'),
+  backgroundColor: 'red',
 }

@@ -1,22 +1,21 @@
-import Button from './Button'
 import { action } from '@storybook/addon-actions'
+import Button from './Button'
 
 export default {
   title: 'Button',
   component: 'Button',
   argTypes: {
-    label: { control: 'text' },
-    borderWidth: { control: { type: 'number', min: 0, max: 10 } },
-    color: {control: {type: 'color'}},
-    borderColor: {control: {type: 'color'}},
-  }
+    width: {
+      control: { type: 'range', min: 400, max: 1200, step: 50 },
+    },
+  },
 }
 
-const DefaultButton = (args) => <Button {...args}>{PrimaryButton.args.label}</Button>
+const DefaultButton = args => <Button {...args}>{args.label}</Button>
 
 export const PrimaryButton = DefaultButton.bind({})
 PrimaryButton.args = {
   onClick: action('onClick'),
   label: 'click me',
-  borderWidth: 1,
+  width: '600',
 }
