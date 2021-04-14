@@ -11,15 +11,15 @@ exports[`GamePage renders all added players with score button 1`] = `
     class="CountScore"
   >
     <div
-      class="Player__SinglePlayer-sc-18wz419-0 gPncdf"
+      class="Player__SinglePlayer-sc-18wz419-0 ijlHBo"
     >
       <div
-        class="Player__SinglePlayerName-sc-18wz419-1 kEwGuQ"
+        class="Player__SinglePlayerName-sc-18wz419-1 bTAKsq"
       >
         Sue
       </div>
       <button
-        class="Button-sc-19qr0ud-0 Player__ScoreButton-sc-18wz419-2 hgHwpI kqNYBW"
+        class="Button-sc-19qr0ud-0 Player__ScoreButton-sc-18wz419-2 gWKtP iCiGMd"
       >
         10
       </button>
@@ -29,28 +29,28 @@ exports[`GamePage renders all added players with score button 1`] = `
     class="CountScore"
   >
     <div
-      class="Player__SinglePlayer-sc-18wz419-0 gPncdf"
+      class="Player__SinglePlayer-sc-18wz419-0 ijlHBo"
     >
       <div
-        class="Player__SinglePlayerName-sc-18wz419-1 kEwGuQ"
+        class="Player__SinglePlayerName-sc-18wz419-1 bTAKsq"
       >
         Joe
       </div>
       <button
-        class="Button-sc-19qr0ud-0 Player__ScoreButton-sc-18wz419-2 hgHwpI kqNYBW"
+        class="Button-sc-19qr0ud-0 Player__ScoreButton-sc-18wz419-2 gWKtP iCiGMd"
       >
         14
       </button>
     </div>
   </section>
   <a
-    class="Button-sc-19qr0ud-0 hgHwpI"
+    class="Button-sc-19qr0ud-0 gWKtP"
     href="/"
   >
     End game
   </a>
   <button
-    class="Button-sc-19qr0ud-0 hgHwpI"
+    class="Button-sc-19qr0ud-0 gWKtP"
   >
     Show winner!
   </button>
