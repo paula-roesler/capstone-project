@@ -22,16 +22,16 @@ export default function App() {
 
   useEffect(() => {
     getAllWeatherData()
-  })
+  }, [])
 
   useEffect(() => {
     saveToLocal('weather', weather)
   }, [weather])
 
   const options = {
-    weekday: 'long',
+    weekday: 'short',
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
