@@ -1,5 +1,4 @@
 import { MemoryRouter } from 'react-router-dom'
-import { action } from '@storybook/addon-actions'
 import HistoryEntry from './HistoryEntry'
 
 export default {
@@ -36,6 +35,4 @@ EntryOfHistory.args = {
       ],
     },
   ],
-
-  onClick: action('showHistoryEntry'),
 }

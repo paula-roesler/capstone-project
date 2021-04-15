@@ -89,9 +89,11 @@ export default function App() {
   function addPlayer({ nameOfPlayer }) {
     setPlayers([{ name: nameOfPlayer, score: 0, holes: [] }, ...players])
   }
+
   function resetForm() {
     setPlayers([])
   }
+
   function onReset() {
     setPlayers([])
   }
@@ -159,6 +161,7 @@ export default function App() {
       })
   }
 }
+
 export const ErrorMessage = styled.div`
   color: var(--error);
   border: 2px solid var(--error);
