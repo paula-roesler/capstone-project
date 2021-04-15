@@ -2,43 +2,64 @@ import styled from 'styled-components/macro'
 
 export default function WeatherForecastCard(weather) {
   const currentDay = parseInt(weather.day)
-  const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+  console.log(currentDay)
+  const options = {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
 
   return (
     <ForecastWrapper>
       <ForecastDay>
-            <ForecastDescription>
-            <ForecastDate>{new Date(weather['weather']['weather']['list'][currentDay]['dt'] * 1000).toLocaleDateString('en-EN', options)}</ForecastDate>
-              {
-                weather['weather']['weather']['list'][currentDay]['weather'][0][
-                  'description'
-                ]
-              }
-              <br></br>
-              Wind: {weather['weather']['weather']['list'][currentDay]['wind']['speed']} km/h
-              <br></br>
-              Humidity:{' '}
-              {weather['weather']['weather']['list'][currentDay]['main']['humidity']}%
-            </ForecastDescription>
+        <ForecastDescription>
+          <ForecastDate>
+            {new Date(
+              weather['weather']['weather']['list'][currentDay]['dt'] * 1000
+            ).toLocaleDateString('en-EN', options)}
+          </ForecastDate>
+          {
+            weather['weather']['weather']['list'][currentDay]['weather'][0][
+              'description'
+            ]
+          }
+          <br></br>
+          Wind:{' '}
+          {
+            weather['weather']['weather']['list'][currentDay]['wind']['speed']
+          }{' '}
+          km/h
+          <br></br>
+          Humidity:{' '}
+          {
+            weather['weather']['weather']['list'][currentDay]['main'][
+              'humidity'
+            ]
+          }
+          %
+        </ForecastDescription>
         <DegreeAndSymbol>
-          <ForecastDegree>{Math.trunc(weather['weather']['weather']['list'][currentDay]['main']['temp'])} °C</ForecastDegree>
+          <ForecastDegree>
+            {Math.trunc(
+              weather['weather']['weather']['list'][currentDay]['main']['temp']
+            )}{' '}
+            °C
+          </ForecastDegree>
           <ForecastIcon>
             <img
               src={`src=./../images/weathericons/${weather['weather']['weather']['list'][currentDay]['weather'][0]['icon']}.svg`}
               alt=""
-              />
+            />
           </ForecastIcon>
         </DegreeAndSymbol>
-
       </ForecastDay>
     </ForecastWrapper>
   )
 }
 
-
-
 export const DegreeAndSymbol = styled.div`
-text-align: center;
+  text-align: center;
 `
 export const ForecastIcon = styled.div`
   width: 70px;
