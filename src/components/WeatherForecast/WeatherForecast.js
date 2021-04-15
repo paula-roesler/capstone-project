@@ -14,11 +14,11 @@ export default function Weather(weather) {
       </NavigationButtonHome>
       <Headline>Hamburg</Headline>
       <WeatherForecast>
-        {/* <WeatherForecastCard weather={weather} day="0" />
+        <WeatherForecastCard weather={weather} day="0" />
         <WeatherForecastCard weather={weather} day="8" />
         <WeatherForecastCard weather={weather} day="16" />
         <WeatherForecastCard weather={weather} day="24" />
-        <WeatherForecastCard weather={weather} day="32" /> */}
+        <WeatherForecastCard weather={weather} day="32" />
       </WeatherForecast>
     </>
   )
