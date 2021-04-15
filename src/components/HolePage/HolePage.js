@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../Button'
@@ -119,3 +120,18 @@ export const ButtonWrapper = styled.div`
   justify-items: space-between;
   position: relative;
 `
+HolePage.propTypes = {
+  hole: PropTypes.number,
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  distMen: PropTypes.string,
+  distWomen: PropTypes.string,
+  par: PropTypes.string,
+  players: PropTypes.array,
+  next: PropTypes.func,
+  disabled: PropTypes.bool,
+  prev: PropTypes.func,
+  onScore: PropTypes.func,
+  resetScore: PropTypes.func,
+  onPrev: PropTypes.func,
+}

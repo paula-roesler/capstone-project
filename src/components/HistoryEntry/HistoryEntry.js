@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import { useState } from 'react'
 import Button from '../Button'
 import { ReactComponent as Arrow } from '../../assets/arrow-right-o.svg'
 import { ReactComponent as ArrowDown } from '../../assets/arrow-down-o.svg'
@@ -110,3 +111,7 @@ export const HoleScoreDd = styled.dd`
   margin-right: -1px;
   line-height: 50px;
 `
+HistoryEntry.propTypes = {
+  players: PropTypes.array,
+  dateOfGame: PropTypes.string,
+}

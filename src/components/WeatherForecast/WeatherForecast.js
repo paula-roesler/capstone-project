@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Home } from '../../assets/home.svg'
@@ -6,7 +7,7 @@ import WeatherForecastCard from '../WeatherForecastCard'
 
 export default function Weather(weather) {
   const home = <Home />
-  console.log(weather)
+
   return (
     <>
       <NavigationButtonHome as={Link} to="/">
@@ -60,3 +61,7 @@ export const NavigationButtonHome = styled(Button)`
     background-color: var(--disabled);
   }
 `
+
+WeatherForecast.propTypes = {
+  weather: PropTypes.object,
+}

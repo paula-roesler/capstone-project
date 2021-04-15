@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Route, Switch } from 'react-router-dom'
 import HolePage from '../HolePage'
 
@@ -65,4 +66,14 @@ export default function Holes({
       </Switch>
     </div>
   )
+}
+
+Holes.propTypes = {
+  players: PropTypes.array,
+  countScore: PropTypes.func,
+  visible: PropTypes.bool,
+  onNext: PropTypes.func,
+  onPrev: PropTypes.func,
+  disabled: PropTypes.bool,
+  hole: PropTypes.number,
 }
