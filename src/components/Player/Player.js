@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Button from '../Button'
 
@@ -40,3 +41,9 @@ export const ScoreButton = styled(Button)`
   vertical-align: middle;
   margin: 0 !important;
 `
+Player.propTypes = {
+  player: PropTypes.string,
+  score: PropTypes.number,
+  onScore: PropTypes.func,
+  disabled: PropTypes.bool,
+}

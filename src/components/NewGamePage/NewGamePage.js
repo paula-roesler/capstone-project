@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -117,3 +118,11 @@ export const NavigationButtonHistory = styled(Button)`
     background-color: var(--disabled);
   }
 `
+
+NewGamePage.propTypes = {
+  addPlayer: PropTypes.func,
+  players: PropTypes.array,
+  resetForm: PropTypes.func,
+  resetHoleOne: PropTypes.func,
+  name: PropTypes.string,
+}

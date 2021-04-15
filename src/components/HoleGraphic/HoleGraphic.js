@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 export default function HoleGraphic({ src, alt }) {
@@ -9,3 +10,7 @@ export default function HoleGraphic({ src, alt }) {
 export const GraphicOfHole = styled.img`
   margin: auto 0;
 `
+HoleGraphic.propTypes = {
+  src: PropTypes.string,
+  alt: PropTypes.string,
+}

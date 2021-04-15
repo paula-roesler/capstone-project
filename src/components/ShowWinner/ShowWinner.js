@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../Button'
@@ -53,3 +54,9 @@ export const WinnerName = styled.p`
 export const WinnerScore = styled.p`
   color: var(--secondary);
 `
+ShowWinner.propTypes = {
+  title: PropTypes.string,
+  players: PropTypes.array,
+  onReset: PropTypes.func,
+  onSave: PropTypes.func,
+}
