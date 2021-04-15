@@ -74,6 +74,7 @@ export const ArrowSpan = styled.div`
 export const DateSpan = styled.span`
   color: var(--primary);
   padding-left: 10px;
+  font-size: 18px;
 `
 export const PlayerWrapper = styled.div`
   padding-bottom: 20px;

@@ -5,4 +5,10 @@ export default {
   component: 'Player',
 }
 
-export const templatePlayer = () => <Player />
+const DefaultPlayer = args => <Player {...args} />
+
+export const SinglePlayer = DefaultPlayer.bind({})
+SinglePlayer.args = {
+  player: 'Sue',
+  score: 22,
+}

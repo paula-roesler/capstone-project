@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BIRDIE",
+  "name": "BIRDIE – The Golfers App",
+  "description": "Score your private golf competitions with BIRDIE. ",
   "icons": [
     {
       "src": "favicon.ico",

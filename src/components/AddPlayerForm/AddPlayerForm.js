@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Button from '../Button'
 
@@ -40,6 +41,12 @@ export default function AddPlayerForm({
     form.reset()
     playerName.focus()
   }
+}
+
+AddPlayerForm.propTypes = {
+  onAddPlayer: PropTypes.func,
+  disabled: PropTypes.bool,
+  placeholderText: PropTypes.string,
 }
 
 export const Headline = styled.h3`

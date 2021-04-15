@@ -15,7 +15,7 @@ export default function App() {
   const [currentHole, setCurrentHole] = useState(0)
   const [history, setHistory] = useState(loadFromLocal('history') ?? [])
   const [error, setError] = useState(null)
-  const [weather, setWeather] = useState([])
+  const [weather, setWeather] = useState(loadFromLocal('weather') ?? [])
 
   const apiKey = process.env.REACT_APP_API_KEY
   let day = new Date().getDate()
@@ -24,10 +24,14 @@ export default function App() {
     getAllWeatherData()
   }, [])
 
+  useEffect(() => {
+    saveToLocal('weather', weather)
+  }, [weather])
+
   const options = {
-    weekday: 'long',
+    weekday: 'short',
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
@@ -85,9 +89,11 @@ export default function App() {
   function addPlayer({ nameOfPlayer }) {
     setPlayers([{ name: nameOfPlayer, score: 0, holes: [] }, ...players])
   }
+
   function resetForm() {
     setPlayers([])
   }
+
   function onReset() {
     setPlayers([])
   }

@@ -4,8 +4,9 @@ import { ReactComponent as Home } from '../../assets/home.svg'
 import Button from '../Button'
 import WeatherForecastCard from '../WeatherForecastCard'
 
-export default function Weather(weather, error) {
+export default function Weather(weather) {
   const home = <Home />
+  console.log(weather)
   return (
     <>
       <NavigationButtonHome as={Link} to="/">
