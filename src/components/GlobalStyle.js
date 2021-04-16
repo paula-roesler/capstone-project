@@ -38,8 +38,8 @@ export default createGlobalStyle`
     &:focus {
       outline: none;
       border-color: transparent;
-      box-shadow: 0 0 4px 1px var(--primary);
-      -webkit-box-shadow: 0 0 4px 1px var(--primary);
+      box-shadow: 0px 0px 4px 1px var(--primary);
+      -webkit-box-shadow: 0px 0px 4px 1px var(--primary);
     }
     outline: none !important;
   }
