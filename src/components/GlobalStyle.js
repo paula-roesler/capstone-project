@@ -39,8 +39,8 @@ export default createGlobalStyle`
       outline: none;
       border-color: transparent;
       -webkit-appearance: none;
-      box-shadow: 0px 0px 4px 1px rgba(144, 238, 155, 1);
-      -webkit-box-shadow: 0px 0px 4px 1px rgba(144, 238, 155, 1);
+      box-shadow: 0px 0px 4px 1px var(--primary);
+      -webkit-box-shadow: 0px 0px 4px 1px var(--primary);
     }
     outline: none !important;
   }
