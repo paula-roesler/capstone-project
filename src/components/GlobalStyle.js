@@ -39,6 +39,7 @@ export default createGlobalStyle`
       outline: none;
       border-color: transparent;
       box-shadow: 0 0 4px 1px var(--primary);
+      -webkit-box-shadow: 0 0 4px 1px var(--primary);
     }
     outline: none !important;
   }
