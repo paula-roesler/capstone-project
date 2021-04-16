@@ -32,18 +32,10 @@ describe('HistoryEntry', () => {
     render(<HistoryEntry players={players} />)
     const button = screen.getByRole('button')
 
-    // userEvent.click(button)
-    // // Here you'd want to test if `<FiMinusCircle />` is rendered.
-    // expect(screen.getByTestId('arrow')).toBe('arrow')
-    // expect(screen.getByText('Sue')).toBeInTheDocument()
-
     userEvent.click(button)
     expect(screen.getByTestId('arrowdown')).toBeInTheDocument()
     expect(screen.queryByText('Sue')).toBeInTheDocument()
     expect(screen.queryByText('Jack')).toBeInTheDocument()
-    userEvent.click(button)
-    expect(screen.getByTestId('arrow')).toBe('arrow')
-    expect(screen.getByText('Sue')).not.toBeInTheDocument()
   })
 
   screen.debug()
