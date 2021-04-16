@@ -17,7 +17,11 @@ export default function HistoryEntry({ players, dateOfGame }) {
         }}
       >
         <ArrowSpan>
-          {!isGameDetailsVisible ? <Arrow /> : <ArrowDown />}
+          {!isGameDetailsVisible ? (
+            <Arrow data-testid="arrow" />
+          ) : (
+            <ArrowDown data-testid="arrowdown" />
+          )}
 
           <DateSpan>{dateOfGame}</DateSpan>
         </ArrowSpan>
