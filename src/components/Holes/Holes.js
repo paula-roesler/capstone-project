@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import { Route, Switch } from 'react-router-dom'
+import styled from 'styled-components'
+import Button from '../Button'
 import HolePage from '../HolePage'
 
 export default function Holes({
@@ -44,10 +46,10 @@ export default function Holes({
             onPrev={onPrev}
             disabled={disabled}
             prev="/one"
-            next="/eighteen"
+            next="/three"
           />
         </Route>
-        <Route path="/eighteen">
+        <Route path="/three">
           <HolePage
             hole={hole}
             src="./../images/Hole-18.svg"
@@ -67,6 +69,34 @@ export default function Holes({
     </div>
   )
 }
+
+export const NavButtonLeft = styled(Button)`
+  width: 40px;
+  height: 40px;
+  border-radius: none;
+  position: absolute;
+  left: -10px;
+  top: 120px;
+  color: var(--primary);
+  background-color: var(--background);
+`
+
+export const NavButtonRight = styled(Button)`
+  width: 40px;
+  height: 40px;
+  border-radius: none;
+  position: absolute;
+  right: 5px;
+  top: 120px;
+  color: var(--primary);
+  background-color: var(--background);
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-items: space-between;
+  position: relative;
+`
 
 Holes.propTypes = {
   players: PropTypes.array,
