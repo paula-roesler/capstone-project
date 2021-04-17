@@ -19,11 +19,14 @@ export default createGlobalStyle`
   }
 
   body {
-    margin: 0;
+    margin: 0 auto;
     font-family: gesta, sans-serif;
     font-size: 112.5%;
     line-height: 1.5;
-    background-color: #293133;
+    background-color: var(--background);
+    width: 375px;
+    height: 667px;
+
   }
   
   input, textarea {
