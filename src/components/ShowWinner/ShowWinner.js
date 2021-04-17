@@ -30,6 +30,10 @@ export default function ShowWinner({ title, players, onReset, onSave }) {
       <Button as={Link} to="/history" onClick={onSave}>
         Save game
       </Button>
+      <Hint>
+        A perfect round of golf usually takes 18 holes. For more comfortable
+        testing purposes only three holes have been created currently.
+      </Hint>
     </WrapperWinner>
   )
 }
@@ -54,6 +58,15 @@ export const WinnerName = styled.p`
 export const WinnerScore = styled.p`
   color: var(--secondary);
 `
+
+export const Hint = styled.div`
+  text-align: center;
+  color: var(--primary);
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--error);
+`
+
 ShowWinner.propTypes = {
   title: PropTypes.string,
   players: PropTypes.array,
