@@ -33,6 +33,9 @@ export default createGlobalStyle`
     font-family: inherit;
     font-size: 16px;
     width: 100%;
+    color: var(--primary);
+    border: var(--border-width) solid var(--primary);
+    padding: 10px;
     background-color: transparent;
     ::placeholder { 
       color: var(--primary);
@@ -46,12 +49,6 @@ export default createGlobalStyle`
       -webkit-box-shadow: 0px 0px 4px 1px var(--primary);
     }
     outline: none !important;
-  }
-  input, textarea {
-    color: var(--primary);
-    border: var(--border-width) solid var(--primary);
-    padding: 10px;
-
   }
 
   h1, h2, h3, h4, h5, h6 {
