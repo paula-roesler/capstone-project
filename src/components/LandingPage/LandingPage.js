@@ -29,10 +29,11 @@ export const Title = styled.h1`
 export const Subtitle = styled.span`
   display: block;
   font-size: 19px;
-  font-style: italic;
-  font-weight: 300;
   margin-top: 0;
   text-align: center;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--secondary);
 `
 
 export const ButtonWrapper = styled.div`
@@ -49,14 +50,7 @@ export const PlayButton = styled(Play)`
   position: absolute;
   top: -20px;
   left: -20px;
-  filter: drop-shadow(0 0 5px var(--primary));
   transition: all 0.3s ease-in-out;
-  &:hover {
-    filter: drop-shadow(0 0 10px var(--secondary));
-  }
-  &:active {
-    filter: drop-shadow(0 0 10px var(--secondary));
-  }
 `
 
 export const GoButton = styled(Button)`
@@ -70,11 +64,13 @@ export const GoButton = styled(Button)`
   animation: GoButton 2s infinite;
   color: var(--background);
   &:hover {
-    color: var(--secondary);
+    color: var(--background);
+    background-color: var(--secondary);
     animation: none;
   }
   &:active {
-    color: var(--secondary);
+    color: var(--background);
+    background-color: var(--secondary);
   }
 
   @-webkit-keyframes GoButton {
