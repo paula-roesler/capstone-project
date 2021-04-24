@@ -49,7 +49,7 @@ export default function App() {
     <Grid>
       <Switch>
         <Route exact path="/">
-          <LandingPage />
+          <LandingPage title={'BIRDIE'} subtitle={'Score your game!'} />
         </Route>
         <Route path="/new-game">
           <NewGamePage

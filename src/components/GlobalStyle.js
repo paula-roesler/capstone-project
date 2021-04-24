@@ -5,9 +5,12 @@ export default createGlobalStyle`
     --white: #fcfcfc;
     --background: #293133;
     --primary: #87B8DE;
+    --primary04: rgba(135, 148, 222, 0.4);
+    --primary00: rgba(135, 148, 222, 0);
     --secondary: lightgreen;
     --disabled: #ABBDCF;
     --error: #d36d6d;
+    
     
     --bgGradient: linear-gradient(to top, #293133 0%, #313B3D 100%);
 
