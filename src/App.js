@@ -9,6 +9,7 @@ import HistoryPage from './components/HistoryPage'
 import Holes from './components/Holes'
 import ShowWinner from './components/ShowWinner'
 import WeatherForecast from './components/WeatherForecast'
+import LandingPage from './components/LandingPage'
 
 export default function App() {
   const [players, setPlayers] = useState([])
@@ -48,6 +49,9 @@ export default function App() {
     <Grid>
       <Switch>
         <Route exact path="/">
+          <LandingPage title={'BIRDIE'} subtitle={'Score your game!'} />
+        </Route>
+        <Route path="/new-game">
           <NewGamePage
             key={players}
             players={players}

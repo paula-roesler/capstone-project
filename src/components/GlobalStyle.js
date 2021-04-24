@@ -5,9 +5,12 @@ export default createGlobalStyle`
     --white: #fcfcfc;
     --background: #293133;
     --primary: #87B8DE;
+    --primary04: rgba(135, 148, 222, 0.4);
+    --primary00: rgba(135, 148, 222, 0);
     --secondary: lightgreen;
     --disabled: #ABBDCF;
     --error: #d36d6d;
+    
     
     --bgGradient: linear-gradient(to top, #293133 0%, #313B3D 100%);
 
@@ -33,6 +36,9 @@ export default createGlobalStyle`
     font-family: inherit;
     font-size: 16px;
     width: 100%;
+    color: var(--primary);
+    border: var(--border-width) solid var(--primary);
+    padding: 10px;
     background-color: transparent;
     ::placeholder { 
       color: var(--primary);
@@ -46,12 +52,6 @@ export default createGlobalStyle`
       -webkit-box-shadow: 0px 0px 4px 1px var(--primary);
     }
     outline: none !important;
-  }
-  input, textarea {
-    color: var(--primary);
-    border: var(--border-width) solid var(--primary);
-    padding: 10px;
-
   }
 
   h1, h2, h3, h4, h5, h6 {
