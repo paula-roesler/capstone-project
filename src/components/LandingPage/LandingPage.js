@@ -24,6 +24,9 @@ export const PlayButton = styled(Play)`
   &:hover {
     filter: drop-shadow(0 0 10px var(--secondary));
   }
+  &:active {
+    filter: drop-shadow(0 0 10px var(--secondary));
+  }
 `
 
 export const GoButton = styled(Button)`
@@ -33,6 +36,9 @@ export const GoButton = styled(Button)`
   color: var(--primary);
   background-color: transparent;
   &:hover {
+    color: var(--secondary);
+  }
+  &:active {
     color: var(--secondary);
   }
 `
