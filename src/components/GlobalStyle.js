@@ -8,8 +8,11 @@ export default createGlobalStyle`
     --primary04: rgba(135, 148, 222, 0.4);
     --primary00: rgba(135, 148, 222, 0);
     --secondary: lightgreen;
+    --secondary04: rgba(144, 238, 144, 0.8);
+    --secondary00: rgba(144, 238, 144, 0); 
     --disabled: #ABBDCF;
-    --error: #d36d6d;
+    --red: #d36d6d;
+    --yellow: #fae882;
     
     
     --bgGradient: linear-gradient(to top, #293133 0%, #313B3D 100%);

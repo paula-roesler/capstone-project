@@ -50,6 +50,7 @@ export const PlayButton = styled(Play)`
   position: absolute;
   top: -20px;
   left: -20px;
+
   transition: all 0.3s ease-in-out;
 `
 
@@ -75,27 +76,27 @@ export const GoButton = styled(Button)`
 
   @-webkit-keyframes GoButton {
     0% {
-      -webkit-box-shadow: 0 0 0 0 var(--primary04);
+      -webkit-box-shadow: 0 0 0 0 var(--secondary04);
     }
     70% {
-      -webkit-box-shadow: 0 0 0 20px var(--primary00);
+      -webkit-box-shadow: 0 0 0 20px var(--secondary00);
     }
     100% {
-      -webkit-box-shadow: 0 0 0 0 var(--primary00);
+      -webkit-box-shadow: 0 0 0 0 var(--secondary00);
     }
   }
   @keyframes GoButton {
     0% {
-      -moz-box-shadow: 0 0 0 0 var(--primary04);
-      box-shadow: 0 0 0 0 var(--primary04);
+      -moz-box-shadow: 0 0 0 0 var(--secondary04);
+      box-shadow: 0 0 0 0 var(--secondary04);
     }
     70% {
-      -moz-box-shadow: 0 0 0 20px var(--primary00);
-      box-shadow: 0 0 0 20px var(--primary00);
+      -moz-box-shadow: 0 0 0 20px var(--secondary00);
+      box-shadow: 0 0 0 20px var(--secondary00);
     }
     100% {
-      -moz-box-shadow: 0 0 0 0 var(--primary00);
-      box-shadow: 0 0 0 0 var(--primary00);
+      -moz-box-shadow: 0 0 0 0 var(--secondary00);
+      box-shadow: 0 0 0 0 var(--secondary00);
     }
   }
 `
