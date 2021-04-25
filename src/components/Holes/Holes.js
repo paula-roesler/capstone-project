@@ -6,7 +6,8 @@ import HolePage from '../HolePage'
 
 export default function Holes({
   players,
-  countScore,
+  scoreMinus,
+  scorePlus,
   visible,
   onNext,
   onPrev,
@@ -25,7 +26,8 @@ export default function Holes({
             distMen="351"
             distWomen="331"
             players={players}
-            onScore={countScore}
+            onPlus={scorePlus}
+            onMinus={scoreMinus}
             resetScore={onNext}
             onPrev={onPrev}
             prev="/"
@@ -41,7 +43,8 @@ export default function Holes({
             distMen="351"
             distWomen="331"
             players={players}
-            onScore={countScore}
+            onPlus={scorePlus}
+            onMinus={scoreMinus}
             resetScore={onNext}
             onPrev={onPrev}
             disabled={disabled}
@@ -58,7 +61,8 @@ export default function Holes({
             distWomen="331"
             players={players}
             visible={visible}
-            onScore={countScore}
+            onPlus={scorePlus}
+            onMinus={scoreMinus}
             onPrev={onPrev}
             disabled={disabled}
             prev="/two"
@@ -101,6 +105,8 @@ export const ButtonWrapper = styled.div`
 Holes.propTypes = {
   players: PropTypes.array,
   countScore: PropTypes.func,
+  onPlus: PropTypes.func,
+  onMinus: PropTypes.func,
   visible: PropTypes.bool,
   onNext: PropTypes.func,
   onPrev: PropTypes.func,

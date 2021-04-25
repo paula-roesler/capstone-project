@@ -79,7 +79,8 @@ export default function App() {
         </Route>
         <Holes
           players={players}
-          countScore={countScore}
+          scoreMinus={scoreMinus}
+          scorePlus={scorePlus}
           onNext={resetScore}
           onPrev={decrHole}
           onReset={onReset}
@@ -102,7 +103,30 @@ export default function App() {
     setPlayers([])
   }
 
-  function countScore(playerIndex) {
+  function scoreMinus(playerIndex) {
+    const currentPlayer = players[playerIndex]
+    const currentScore = currentPlayer.holes[currentHole]?.score ?? 0
+
+    setPlayers([
+      ...players.slice(0, playerIndex),
+      {
+        ...currentPlayer,
+        score: currentPlayer.score - 1,
+        holes: [
+          ...currentPlayer.holes.slice(0, currentHole),
+          {
+            ...currentPlayer.holes[currentHole],
+            score: currentScore - 1,
+            name: currentHole + 1,
+          },
+          ...currentPlayer.holes.slice(currentHole + 1),
+        ],
+      },
+      ...players.slice(playerIndex + 1),
+    ])
+  }
+
+  function scorePlus(playerIndex) {
     const currentPlayer = players[playerIndex]
     const currentScore = currentPlayer.holes[currentHole]?.score ?? 0
 
