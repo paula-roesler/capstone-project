@@ -61,10 +61,12 @@ export const WinnerScore = styled.p`
 
 export const Hint = styled.div`
   text-align: center;
+  font-style: italic;
   color: var(--primary);
   width: 100%;
   padding: 20px;
-  border: 1px solid var(--error);
+  border: 1px solid var(--secondary);
+  border-radius: 12px;
 `
 
 ShowWinner.propTypes = {

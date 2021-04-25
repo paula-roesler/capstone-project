@@ -27,29 +27,34 @@ export default function HolePage({
   const arrowright = <ArrowRight />
   return (
     <Wrapper>
-      <HoleWrapper>
-        <h2>Hole {hole}</h2>
-        <ButtonWrapper>
-          <NavButtonRight
-            as={Link}
-            to={next}
-            onClick={resetScore}
-            disabled={disabled}
-          >
-            {arrowright}
-          </NavButtonRight>
-          <NavButtonLeft as={Link} to={prev} onClick={onPrev}>
-            {arrowleft}
-          </NavButtonLeft>
-        </ButtonWrapper>
-        <HoleGraphic src={src} alt={alt} />
+      <HoleInfo>
+        <Hole>{hole}</Hole>
         <Details>
-          <Par></Par>
-          <Distances>
-            {par} / Men: {distMen} m / Women: {distWomen} m
-          </Distances>
+          <li>{par}</li>
+          <li>
+            <Yellow></Yellow>
+            {distMen} m
+          </li>
+          <li>
+            <Red></Red>
+            {distWomen} m
+          </li>
         </Details>
-      </HoleWrapper>
+      </HoleInfo>
+      <HolePicture>
+        <HoleGraphic src={src} alt={alt} />
+      </HolePicture>
+      <NavButtonLeft as={Link} to={prev} onClick={onPrev}>
+        {arrowleft}
+      </NavButtonLeft>
+      <NavButtonRight
+        as={Link}
+        to={next}
+        onClick={resetScore}
+        disabled={disabled}
+      >
+        {arrowright}
+      </NavButtonRight>
       <PlayersWrapper>
         {players.map(({ name, score }, index) => (
           <Player
@@ -69,59 +74,82 @@ export default function HolePage({
 export const Wrapper = styled.div`
   display: grid;
   gap: 20px;
-  text-align: center;
+  position: relative;
 `
-export const HoleWrapper = styled.div``
-
-export const Details = styled.div`
-  font-size: 16px;
-  color: var(--primary);
+export const HoleInfo = styled.div`
+  position: absolute;
+  top: 0;
+  right: 10px;
+  /* padding: 15px; */
   text-align: left;
-  border: 1px solid var(--primary);
-  padding: 15px;
-  text-align: center;
+  color: var(--primary);
+  font-size: 16px;
 `
-
+export const Hole = styled.h1`
+  font-size: 30px;
+  margin: 0;
+`
+export const Details = styled.ul`
+  color: var(--primary);
+  list-style: none;
+  padding-left: 0;
+  vertical-align: middle;
+  margin-top: 0;
+`
 export const Par = styled.div`
   color: var(--primary);
 `
-
-export const Distances = styled.div`
-  color: var(--primary);
+export const Yellow = styled.div`
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+  background-color: var(--yellow);
+  margin-right: 10px;
+  display: inline-block;
 `
+export const Red = styled.div`
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+  background-color: var(--red);
+  margin-right: 10px;
+  display: inline-block;
+`
+export const NavButtonLeft = styled(Button)`
+  position: absolute;
+  top: 170px;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: none;
+  color: var(--primary);
+  background-color: var(--background);
+  margin: 0;
+`
+export const NavButtonRight = styled(Button)`
+  position: absolute;
+  top: 170px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: none;
+  color: var(--primary);
+  background-color: var(--background);
+  margin: 0;
+`
+export const HolePicture = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+`
+
 export const PlayersWrapper = styled.div`
   display: grid;
   gap: 20px;
-  position: relative;
+  margin-bottom: 0;
 `
 
-export const NavButtonLeft = styled(Button)`
-  width: 40px;
-  height: 40px;
-  border-radius: none;
-  position: absolute;
-  left: -10px;
-  top: 120px;
-  color: var(--primary);
-  background-color: var(--background);
-`
-
-export const NavButtonRight = styled(Button)`
-  width: 40px;
-  height: 40px;
-  border-radius: none;
-  position: absolute;
-  right: 5px;
-  top: 120px;
-  color: var(--primary);
-  background-color: var(--background);
-`
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-items: space-between;
-  position: relative;
-`
 HolePage.propTypes = {
   hole: PropTypes.number,
   src: PropTypes.string,
