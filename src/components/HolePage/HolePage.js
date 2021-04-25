@@ -18,7 +18,8 @@ export default function HolePage({
   next,
   disabled,
   prev,
-  onScore,
+  onPlus,
+  onMinus,
   resetScore,
   onPrev,
 }) {
@@ -55,7 +56,8 @@ export default function HolePage({
             key={index}
             player={name}
             score={score}
-            onScore={() => onScore(index, hole)}
+            onMinus={score === 0 ? disabled : () => onMinus(index, hole)}
+            onPlus={() => onPlus(index, hole)}
             disabled={players.length <= 1}
           />
         ))}
