@@ -4,28 +4,37 @@ import { useState } from 'react'
 import Button from '../Button'
 import { ReactComponent as Arrow } from '../../assets/arrow-right-o.svg'
 import { ReactComponent as ArrowDown } from '../../assets/arrow-down-o.svg'
+import { ReactComponent as Trash } from '../../assets/trash.svg'
 
-export default function HistoryEntry({ players, dateOfGame }) {
+export default function HistoryEntry({
+  players,
+  dateOfGame,
+  id,
+  onDeleteGame,
+}) {
   const [isGameDetailsVisible, setIsGameDetailsVisible] = useState(false)
-
   return (
     <Wrapper>
-      <DateOfGameButton
-        onClick={event => {
-          event.stopPropagation()
-          setIsGameDetailsVisible(!isGameDetailsVisible)
-        }}
-      >
-        <ArrowSpan>
-          {!isGameDetailsVisible ? (
-            <Arrow data-testid="arrow" />
-          ) : (
-            <ArrowDown data-testid="arrowdown" />
-          )}
-
-          <DateSpan>{dateOfGame}</DateSpan>
-        </ArrowSpan>
-      </DateOfGameButton>
+      <ButtonWrapper>
+        <DateOfGameButton
+          onClick={event => {
+            event.stopPropagation()
+            setIsGameDetailsVisible(!isGameDetailsVisible)
+          }}
+        >
+          <ArrowSpan>
+            {!isGameDetailsVisible ? (
+              <Arrow data-testid="arrow" />
+            ) : (
+              <ArrowDown data-testid="arrowdown" />
+            )}
+            <DateSpan>{dateOfGame}</DateSpan>
+          </ArrowSpan>
+        </DateOfGameButton>
+        <TrashButton onClick={() => onDeleteGame(id)}>
+          <Trash />
+        </TrashButton>
+      </ButtonWrapper>
       {!isGameDetailsVisible ? (
         ''
       ) : (
@@ -59,6 +68,11 @@ export default function HistoryEntry({ players, dateOfGame }) {
 export const Wrapper = styled.div`
   display: grid;
   gap: 20px;
+  position: relative;
+`
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: space-between;
 `
 export const DateOfGameButton = styled(Button)`
   display: flex;
@@ -80,6 +94,12 @@ export const DateSpan = styled.span`
   color: var(--primary);
   padding-left: 10px;
   font-size: 18px;
+`
+export const TrashButton = styled(Button)`
+  color: var(--secondary);
+  background-color: transparent;
+  width: 20px;
+  margin-right: 12px;
 `
 export const PlayerWrapper = styled.div`
   padding-bottom: 20px;
@@ -118,4 +138,5 @@ export const HoleScoreDd = styled.dd`
 HistoryEntry.propTypes = {
   players: PropTypes.array,
   dateOfGame: PropTypes.string,
+  deleteGame: PropTypes.func,
 }

@@ -5,7 +5,11 @@ import { ReactComponent as Home } from '../../assets/home.svg'
 import HistoryEntry from '../HistoryEntry'
 import Button from '../Button'
 
-export default function HistoryPage({ history, resetHoleOne }) {
+export default function HistoryPage({
+  history,
+  resetHoleOne,
+  handleDeleteGame,
+}) {
   const home = <Home />
   return (
     <>
@@ -15,8 +19,14 @@ export default function HistoryPage({ history, resetHoleOne }) {
       <HistoryWrapper>
         <GameHistoryWrapper>
           <h2>Game history</h2>
-          {history.map(({ dateOfGame, players, id }) => (
-            <HistoryEntry key={id} dateOfGame={dateOfGame} players={players} />
+          {history.map(({ id, dateOfGame, players }) => (
+            <HistoryEntry
+              id={id}
+              key={id}
+              dateOfGame={dateOfGame}
+              players={players}
+              onDeleteGame={handleDeleteGame}
+            />
           ))}
         </GameHistoryWrapper>
       </HistoryWrapper>

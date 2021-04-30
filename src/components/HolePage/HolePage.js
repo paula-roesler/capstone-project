@@ -80,7 +80,6 @@ export const HoleInfo = styled.div`
   position: absolute;
   top: 0;
   right: 10px;
-  /* padding: 15px; */
   text-align: left;
   color: var(--primary);
   font-size: 16px;
@@ -158,9 +157,9 @@ HolePage.propTypes = {
   distWomen: PropTypes.string,
   par: PropTypes.string,
   players: PropTypes.array,
-  next: PropTypes.func,
+  next: PropTypes.string,
+  prev: PropTypes.string,
   disabled: PropTypes.bool,
-  prev: PropTypes.func,
   onScore: PropTypes.func,
   resetScore: PropTypes.func,
   onPrev: PropTypes.func,
