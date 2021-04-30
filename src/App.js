@@ -29,6 +29,12 @@ export default function App() {
     saveToLocal('weather', weather)
   }, [weather])
 
+  const { push } = useHistory()
+
+  useEffect(() => {
+    saveToLocal('history', history)
+  }, [history])
+
   const options = {
     weekday: 'short',
     year: 'numeric',
@@ -38,12 +44,6 @@ export default function App() {
     minute: '2-digit',
   }
   let dateOfGame = new Date().toLocaleDateString('en-EN', options)
-
-  const { push } = useHistory()
-
-  useEffect(() => {
-    saveToLocal('history', history)
-  }, [history])
 
   return (
     <Grid>
@@ -69,7 +69,7 @@ export default function App() {
           />
         </Route>
         <Route path="/history">
-          <HistoryPage history={history} />
+          <HistoryPage history={history} handleDeleteGame={deleteGame} />
         </Route>
         <Route path="/weather">
           <div>
@@ -163,10 +163,15 @@ export default function App() {
   }
 
   function saveGame() {
-    setHistory([{ players, dateOfGame, id: uuidv4() }, ...history])
+    setHistory([{ id: uuidv4(), players, dateOfGame }, ...history])
     setPlayers([])
     setCurrentHole(1)
     push('/history')
+  }
+
+  function deleteGame(currentId) {
+    const filteredHistory = history.filter(item => item.id !== currentId)
+    setHistory(filteredHistory)
   }
 
   function getAllWeatherData(

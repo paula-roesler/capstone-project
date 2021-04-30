@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import { WeatherForecast } from '../WeatherForecast/WeatherForecast'
 
 export default function WeatherForecastCard(weather) {
   const currentDay = parseInt(weather.day)
