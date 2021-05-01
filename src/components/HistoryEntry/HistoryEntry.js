@@ -99,6 +99,7 @@ export const TrashButton = styled(Button)`
   background-color: transparent;
   width: 20px;
   margin-right: 20px;
+  padding: 0;
 `
 export const PlayerWrapper = styled.div`
   padding-bottom: 20px;
