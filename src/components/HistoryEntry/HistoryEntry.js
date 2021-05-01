@@ -76,19 +76,18 @@ export const ButtonWrapper = styled.div`
 `
 export const DateOfGameButton = styled(Button)`
   display: flex;
-  align-items: center;
   font-size: 130%;
   color: var(--primary);
   background-color: var(--transparent);
   text-align: left;
   text-transform: none;
   width: 100%;
+  padding: 0;
 `
 export const ArrowSpan = styled.div`
   display: flex;
   align-items: center;
   color: var(--primary);
-  padding-right: 10px;
 `
 export const DateSpan = styled.span`
   color: var(--primary);
@@ -99,7 +98,7 @@ export const TrashButton = styled(Button)`
   color: var(--secondary);
   background-color: transparent;
   width: 20px;
-  margin-right: 12px;
+  margin-right: 20px;
 `
 export const PlayerWrapper = styled.div`
   padding-bottom: 20px;

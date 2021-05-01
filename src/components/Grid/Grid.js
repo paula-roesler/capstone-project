@@ -10,5 +10,5 @@ const GridSystem = styled.div`
   gap: 20px;
   position: relative;
   height: 100vh;
-  padding: 20px;
+  padding: 15px;
 `
